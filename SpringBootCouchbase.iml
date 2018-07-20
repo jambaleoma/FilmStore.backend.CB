@@ -79,5 +79,6 @@
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.8.3" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin.external:gentyref:1.2.0.vaadin1" level="project" />
     <orderEntry type="library" name="Maven: org.vaadin:viritin:unknown" level="project" />
+    <orderEntry type="library" name="Maven: com.javasampleapproach.couchbase:SpringBootCouchbase:0.0.1" level="project" />
   </component>
 </module>
