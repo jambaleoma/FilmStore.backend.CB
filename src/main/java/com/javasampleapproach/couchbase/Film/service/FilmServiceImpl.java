@@ -73,9 +73,14 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Film> addListaFilms(String formato) {
+        //PC
         File from1080 = new File("H:\\Film\\1080p");
         File from720 = new File("H:\\Film\\720p");
         File fromDVDRip = new File("H:\\Film\\DVDRip");
+        //MAC
+        //File from1080 = new File("/Volumes/TOSHIBA EXT/Film/1080p");
+        //File from720 = new File("/Volumes/TOSHIBA EXT/Film/720p");
+        //File fromDVDRip = new File("/Volumes/TOSHIBA EXT/Film/DVDRip");
         File[] f1080 = trovaFile(from1080);
         File[] f720 = trovaFile(from720);
         File[] fDVD = trovaFile(fromDVDRip);
