@@ -17,6 +17,7 @@ public class FilmController {
     @Autowired
     private FilmService filmsService;
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     private ResponseEntity getAllFilms() {
         try {
@@ -37,11 +38,12 @@ public class FilmController {
         }
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     private ResponseEntity getFilmById(@PathVariable String id) {
         try {
             Film filmById = this.filmsService.getFilmById(id);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Film", "--- OK --- Film Trovato Con Successo").body(filmById);
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Film", "--- OK --- Film Trovato Con Successo").body(filmById);
         } catch (Exception e) {
             throw e;
         }
@@ -51,7 +53,7 @@ public class FilmController {
     private ResponseEntity getFilmByFormatoQuery(@PathVariable String formato) {
         try {
             List<Film> filmByIdQuery = this.filmsService.getFilmByFormatoQuery(formato);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Lista Film per Formato", "--- OK --- Lista Film per Formato Trovata Con Successo").body(filmByIdQuery);
+            return ResponseEntity.status(HttpStatus.OK).header("Lista Film per Formato", "--- OK --- Lista Film per Formato Trovata Con Successo").body(filmByIdQuery);
         } catch (Exception e) {
             throw e;
         }
