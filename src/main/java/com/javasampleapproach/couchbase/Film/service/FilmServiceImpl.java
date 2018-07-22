@@ -71,6 +71,7 @@ public class FilmServiceImpl implements FilmService {
         return f;
     }
 
+    //Riempie il DB Couchbase Con i film nel disco di BackUp
     @Override
     public List<Film> addListaFilms(String formato) {
         //PC
