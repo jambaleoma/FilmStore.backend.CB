@@ -24,4 +24,4 @@ public class Richiesta {
 
     @Field
     private String idCliente;
-}da
+}
