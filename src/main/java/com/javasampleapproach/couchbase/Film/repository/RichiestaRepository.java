@@ -13,5 +13,5 @@ import java.util.List;
 public interface RichiestaRepository extends CouchbasePagingAndSortingRepository<Richiesta, String> {
 
     @Query("#{#n1ql.selectEntity} where #{#n1ql.filter} AND idCliente like $1")
-    List<Richiesta> getRichiestaByFormatoQuery(String idCliente);
+    List<Richiesta> getRichiesteByNomeQuery(String nomeCliente);
 }

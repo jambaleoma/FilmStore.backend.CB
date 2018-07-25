@@ -17,11 +17,14 @@ public class Richiesta {
     private String id;
 
     @Field
-    private Film filmRichiesto;
+    private String titoloFilmRichiesto;
+
+    @Field
+    private String formatoFilmRichiesto;
 
     @Field
     private String dataInserimento;
 
     @Field
-    private String idCliente;
+    private String nomeCliente;
 }

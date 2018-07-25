@@ -1,7 +1,7 @@
 package com.javasampleapproach.couchbase.Film.service;
 
+import com.javasampleapproach.couchbase.Customer.repository.CustomerRepository;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
-import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.model.Richiesta;
 import com.javasampleapproach.couchbase.Film.repository.RichiestaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,9 @@ public class RichiestaServiceImpl implements RichiestaService {
     @Autowired
     private RichiestaRepository richiestaRepository;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
     @Override
     public List<Richiesta> getAllRichieste() {
         List<Richiesta> richieste = (List<Richiesta>) richiestaRepository.findAll();
@@ -25,13 +28,20 @@ public class RichiestaServiceImpl implements RichiestaService {
     }
 
     @Override
-    public List<Richiesta> getAllRichiesteByIdCliente(String idCliente) {
-        return null;
+    public List<Richiesta> getAllRichiesteByNomeCliente(String nomeCliente) {
+        List<Richiesta> richiesteByIdCliente = richiestaRepository.getRichiesteByNomeQuery(nomeCliente);
+        if (richiesteByIdCliente.size() == 0) {
+            throw new NotFoundException("Nessuna Richiesta Trovata");
+        }
+        return richiesteByIdCliente;
     }
 
     @Override
-    public Richiesta getRichiesteById(String id) {
-        return null;
+    public Richiesta getRichiestaById(String id) {
+        Richiesta r = richiestaRepository.findOne(id);
+        if (r == null)
+            throw new NotFoundException("Richiesta con id: " + id + " NON Trovata");
+        return r;
     }
 
     @Override
@@ -41,16 +51,20 @@ public class RichiestaServiceImpl implements RichiestaService {
 
     @Override
     public Richiesta updateRichiesta(Richiesta nuovaRichiesta, String id) {
-        return null;
+
+        Richiesta r = this.addRichiesta(nuovaRichiesta);
+        if (r != null) {
+            return this.deleteRichiestaById(id);
+        }
+        else {
+            throw new NotFoundException("Nessuna Richiesta Aggiornata");
+        }
     }
 
     @Override
     public Richiesta deleteRichiestaById(String id) {
-        return null;
-    }
-
-    @Override
-    public List<Richiesta> getRichiestaByIdClienteQuery(String idCliente) {
-        return null;
+        Richiesta r = this.getRichiestaById(id);
+        richiestaRepository.delete(r);
+        return r;
     }
 }

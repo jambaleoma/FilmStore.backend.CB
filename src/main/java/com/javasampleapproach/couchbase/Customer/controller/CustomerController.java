@@ -16,6 +16,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     private ResponseEntity getAllCustomers() {
         try {
@@ -26,6 +27,7 @@ public class CustomerController {
         }
     }
 
+    @CrossOrigin
     @GetMapping(value = "/byName/{name}")
     private ResponseEntity getAllCustomersByName(@PathVariable String name) {
         try {
@@ -36,6 +38,7 @@ public class CustomerController {
         }
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     private ResponseEntity getCustomerById(@PathVariable String id) {
         try {

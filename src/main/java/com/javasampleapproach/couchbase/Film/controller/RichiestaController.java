@@ -1,6 +1,5 @@
 package com.javasampleapproach.couchbase.Film.controller;
 
-import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.model.Richiesta;
 import com.javasampleapproach.couchbase.Film.service.RichiestaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +27,57 @@ public class RichiestaController {
         }
     }
 
+    @CrossOrigin
+    @GetMapping(value = "/{id}")
+    private ResponseEntity getRichiestaById(@PathVariable String id) {
+        try {
+            Richiesta richiestaById = this.richiestaService.getRichiestaById(id);
+            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Richiesta", "--- OK --- Richiesta Trovata Con Successo").body(richiestaById);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/byNomeCliente/{nomeCliente}")
+    private ResponseEntity getRichiesteByIdCliente(@PathVariable String nomeCliente) {
+        try {
+            List<Richiesta> richiesteByIdCliente = this.richiestaService.getAllRichiesteByNomeCliente(nomeCliente);
+            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Richieste", "--- OK --- Richieste Trovate Con Successo").body(richiesteByIdCliente);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
     @PostMapping(value = "/insertRichiesta")
     public ResponseEntity addRichiesta(@RequestBody Richiesta r) {
         try {
             Richiesta richiestaDaSalvare = this.richiestaService.addRichiesta(r);
             return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Richiesta", "--- OK --- Richiesta Creata Con Successo").body(getAllRichieste().getBody());
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
+    @PutMapping(value = "/upDateRichiesta/{id}")
+    private ResponseEntity updateRichiesta (@RequestBody Richiesta nuovaRichiesta, @PathVariable String id) {
+        try {
+            nuovaRichiesta.setId(null);
+            Richiesta richiestaAggiornata = richiestaService.updateRichiesta(nuovaRichiesta, id);
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Richiesta", "--- OK --- Richiesta Aggiornata Con Successo").body(richiestaAggiornata.toString());
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
+    @DeleteMapping(value = "/deleteRichiestaById/{id}")
+    private ResponseEntity deleteRichiestaById(@PathVariable String id) {
+        try {
+            richiestaService.deleteRichiestaById(id);
+            return ResponseEntity.status(HttpStatus.OK).header("Eliminazione Richiesta", "--- OK --- Richiesta Eliminata Con Successo").body("La Richiesta con Id: " + id + " è stato Eliminata con Successo");
         } catch (Exception e) {
             throw e;
         }

@@ -48,8 +48,9 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public List<Film> getFilmByFormatoQuery(String formato) {
         List<Film> f =  filmRepository.getFilmByFormatoQuery(formato);
-        if (f == null)
-            throw new NotFoundException("Film con Formato: " + formato + " NON Trovato");
+        if (f.size() == 0) {
+            throw new NotFoundException("Film con Formato: " + formato + " NON Trovati");
+        }
         return f;
     }
 
@@ -60,7 +61,6 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public Film updateFilm(Film nuovoFilm, String id) {
-        Film filmDaAggiornare =  this.getFilmById(id);
         return filmRepository.save(nuovoFilm);
     }
 
