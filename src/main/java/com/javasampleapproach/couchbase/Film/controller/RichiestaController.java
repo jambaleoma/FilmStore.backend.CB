@@ -40,10 +40,10 @@ public class RichiestaController {
 
     @CrossOrigin
     @GetMapping(value = "/byNomeCliente/{nomeCliente}")
-    private ResponseEntity getRichiesteByIdCliente(@PathVariable String nomeCliente) {
+    private ResponseEntity getRichiesteByNomeCliente(@PathVariable String nomeCliente) {
         try {
-            List<Richiesta> richiesteByIdCliente = this.richiestaService.getAllRichiesteByNomeCliente(nomeCliente);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Richieste", "--- OK --- Richieste Trovate Con Successo").body(richiesteByIdCliente);
+            List<Richiesta> richiesteByNomeCliente = this.richiestaService.getAllRichiesteByNomeCliente(nomeCliente);
+            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Richieste", "--- OK --- Richieste Trovate Con Successo").body(richiesteByNomeCliente);
         } catch (Exception e) {
             throw e;
         }
@@ -64,9 +64,11 @@ public class RichiestaController {
     @PutMapping(value = "/upDateRichiesta/{id}")
     private ResponseEntity updateRichiesta (@RequestBody Richiesta nuovaRichiesta, @PathVariable String id) {
         try {
-            nuovaRichiesta.setId(null);
+            if (nuovaRichiesta.getId() != null) {
+                nuovaRichiesta.setId(null);
+            }
             Richiesta richiestaAggiornata = richiestaService.updateRichiesta(nuovaRichiesta, id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Richiesta", "--- OK --- Richiesta Aggiornata Con Successo").body(richiestaAggiornata.toString());
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Richiesta", "--- OK --- Richiesta Aggiornata Con Successo").body(getAllRichieste().getBody());
         } catch (Exception e) {
             throw e;
         }

@@ -13,7 +13,6 @@ import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 public class Richiesta {
     @Id
     @GeneratedValue(strategy = GenerationStrategy.UNIQUE)
-    @JsonProperty("_id")
     private String id;
 
     @Field

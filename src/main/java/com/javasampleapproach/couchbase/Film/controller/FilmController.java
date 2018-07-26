@@ -79,16 +79,6 @@ public class FilmController {
         }
     }
 
-    @PutMapping(value = "/upDateFilm/{id}")
-    private ResponseEntity updateFilm (@RequestBody Film nuovoFilm, @PathVariable String id) {
-        try {
-            Film filmAggiornato = filmsService.updateFilm(nuovoFilm, id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Film", "--- OK --- Film Aggiornato Con Successo").body(filmAggiornato.toString());
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
     @DeleteMapping(value = "/deleteFilmById/{id}")
     private ResponseEntity deleteFilmById(@PathVariable String id) {
         try {

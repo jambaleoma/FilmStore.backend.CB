@@ -21,7 +21,7 @@ public class RichiestaServiceImpl implements RichiestaService {
     @Override
     public List<Richiesta> getAllRichieste() {
         List<Richiesta> richieste = (List<Richiesta>) richiestaRepository.findAll();
-        if (richieste.size() == 0) {
+        if (richieste == null) {
             throw new NotFoundException("Nessuna Richiesta Trovata");
         }
         return richieste;
@@ -51,13 +51,17 @@ public class RichiestaServiceImpl implements RichiestaService {
 
     @Override
     public Richiesta updateRichiesta(Richiesta nuovaRichiesta, String id) {
-
-        Richiesta r = this.addRichiesta(nuovaRichiesta);
-        if (r != null) {
-            return this.deleteRichiestaById(id);
+        if (this.richiestaRepository.exists(id)) {
+            Richiesta r = this.getRichiestaById(id);
+            r.setTitoloFilmRichiesto(nuovaRichiesta.getTitoloFilmRichiesto());
+            r.setFormatoFilmRichiesto(nuovaRichiesta.getFormatoFilmRichiesto());
+            r.setDataInserimento(nuovaRichiesta.getDataInserimento());
+            r.setNomeCliente(nuovaRichiesta.getNomeCliente());
+            this.richiestaRepository.getCouchbaseOperations().update(r);
+            return r;
         }
         else {
-            throw new NotFoundException("Nessuna Richiesta Aggiornata");
+            throw new NotFoundException("Richiesta NON Aggiornata");
         }
     }
 

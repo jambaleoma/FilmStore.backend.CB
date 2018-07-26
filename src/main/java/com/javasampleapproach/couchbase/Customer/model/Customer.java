@@ -1,11 +1,13 @@
 package com.javasampleapproach.couchbase.Customer.model;
 
 import com.couchbase.client.java.repository.annotation.Field;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
+@Data
 @Document
 public class Customer {
 
@@ -18,28 +20,15 @@ public class Customer {
 
 	@Field
 	private String lastName;
-	
-	public Customer(String firstName, String lastName){
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
 
-	public Customer() {}
-	
-	public String getId() {
-		return this.id;
-	}
+	@Field
+	private String password;
 
-	public String getFirstName() {
-		return this.firstName;
-	}
+	@Field
+	private String label;
 
-	public String getLastName() {
-		return this.lastName;
-	}
+	@Field
+	private String value;
 
-	@Override
-	public String toString() {
-		return  " Nome: " + this.getFirstName() + " Cognome: " + this.getLastName();
-	}
+
 }

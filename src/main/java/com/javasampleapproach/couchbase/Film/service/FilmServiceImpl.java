@@ -18,7 +18,7 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public List<Film> getAllFilms() {
         List<Film> films = (List<Film>) filmRepository.findAll();
-        if (films.size() == 0) {
+        if (films == null) {
             throw new NotFoundException("Nessun Film Trovato");
         }
         return films;
@@ -57,11 +57,6 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public Film addFilm(Film f) {
         return filmRepository.save(f);
-    }
-
-    @Override
-    public Film updateFilm(Film nuovoFilm, String id) {
-        return filmRepository.save(nuovoFilm);
     }
 
     @Override
