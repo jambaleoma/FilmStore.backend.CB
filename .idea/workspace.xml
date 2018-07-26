@@ -216,9 +216,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="298" />
-    <option name="y" value="231" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2035" />
+    <option name="y" value="159" />
     <option name="width" value="1936" />
     <option name="height" value="1096" />
   </component>
@@ -492,8 +492,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
@@ -505,17 +504,17 @@
       <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.11567164" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49928468" weight="0.2901879" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.30480167" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.26096034" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.26096034" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74666667" visible="true" weight="0.23614073" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.74666667" visible="true" weight="0.23614073" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" sideWeight="0.25333333" side_tool="true" weight="0.21959943" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.29958245" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29958245" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
