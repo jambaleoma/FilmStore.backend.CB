@@ -12,6 +12,6 @@ import java.util.List;
 @ViewIndexed(designDoc = "richiesta")
 public interface RichiestaRepository extends CouchbasePagingAndSortingRepository<Richiesta, String> {
 
-    @Query("#{#n1ql.selectEntity} where #{#n1ql.filter} AND nomeCliente like $1")
+    @Query("#{#n1ql.selectEntity} where _class like '%.Richiesta' AND nomeCliente like $1")
     List<Richiesta> getRichiesteByNomeQuery(String nomeCliente);
 }

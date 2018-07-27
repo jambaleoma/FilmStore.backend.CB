@@ -32,7 +32,7 @@ public class RichiestaController {
     private ResponseEntity getRichiestaById(@PathVariable String id) {
         try {
             Richiesta richiestaById = this.richiestaService.getRichiestaById(id);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Richiesta", "--- OK --- Richiesta Trovata Con Successo").body(richiestaById);
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Richiesta", "--- OK --- Richiesta Trovata Con Successo").body(richiestaById);
         } catch (Exception e) {
             throw e;
         }
@@ -43,7 +43,7 @@ public class RichiestaController {
     private ResponseEntity getRichiesteByNomeCliente(@PathVariable String nomeCliente) {
         try {
             List<Richiesta> richiesteByNomeCliente = this.richiestaService.getAllRichiesteByNomeCliente(nomeCliente);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Richieste", "--- OK --- Richieste Trovate Con Successo").body(richiesteByNomeCliente);
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Richieste", "--- OK --- Richieste Trovate Con Successo").body(richiesteByNomeCliente);
         } catch (Exception e) {
             throw e;
         }
