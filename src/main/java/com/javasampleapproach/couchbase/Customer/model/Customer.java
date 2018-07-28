@@ -30,5 +30,8 @@ public class Customer {
 	@Field
 	private String value;
 
+	@Field
+	private String numeroRichieste;
+
 
 }
