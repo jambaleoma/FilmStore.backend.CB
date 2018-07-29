@@ -1,7 +1,6 @@
 package com.javasampleapproach.couchbase.Film.controller;
 
 import com.javasampleapproach.couchbase.Film.model.Film;
-import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
 import com.javasampleapproach.couchbase.Film.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
