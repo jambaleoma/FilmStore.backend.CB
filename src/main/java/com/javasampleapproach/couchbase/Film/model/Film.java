@@ -23,6 +23,9 @@ public class Film {
     private String nome;
 
     @Field
+    private Integer anno;
+
+    @Field
     private String formato;
 
     public Film(String nome, String formato) {
