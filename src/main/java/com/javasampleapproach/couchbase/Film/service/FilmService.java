@@ -10,6 +10,6 @@ public interface FilmService {
         Film getFilmById(String id);
         Film addFilm(Film f);
         Film deleteFilmById(String id);
-        List<Film> addListaFilms(String formato);
+        //List<Film> addListaFilms(String formato);
         List<Film> getFilmByFormatoQuery(String formato);
 }

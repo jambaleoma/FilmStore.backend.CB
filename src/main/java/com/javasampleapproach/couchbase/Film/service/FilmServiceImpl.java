@@ -66,7 +66,7 @@ public class FilmServiceImpl implements FilmService {
         return f;
     }
 
-    //Riempie il DB Couchbase Con i film nel disco di BackUp
+/*    //Riempie il DB Couchbase Con i film nel disco di BackUp
     @Override
     public List<Film> addListaFilms(String formato) {
         //PC
@@ -97,7 +97,7 @@ public class FilmServiceImpl implements FilmService {
             }
         }
         return listaFilm;
-    }
+    }*/
 
     private static File[] trovaFile(File from) {
         File[] files = from.listFiles();

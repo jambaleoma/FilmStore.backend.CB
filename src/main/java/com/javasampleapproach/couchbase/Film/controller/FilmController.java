@@ -68,7 +68,7 @@ public class FilmController {
         }
     }
 
-    @PostMapping(value = "/insertLocalListFilm/{formato}")
+/*    @PostMapping(value = "/insertLocalListFilm/{formato}")
     public ResponseEntity addFilmsList(@PathVariable String formato) {
         try {
             List<Film> listaFilm = filmsService.addListaFilms(formato);
@@ -76,7 +76,7 @@ public class FilmController {
         } catch (Exception e) {
             throw e;
         }
-    }
+    }*/
 
     @DeleteMapping(value = "/deleteFilmById/{id}")
     private ResponseEntity deleteFilmById(@PathVariable String id) {

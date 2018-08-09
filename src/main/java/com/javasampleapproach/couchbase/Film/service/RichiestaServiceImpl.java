@@ -1,6 +1,5 @@
 package com.javasampleapproach.couchbase.Film.service;
 
-import com.javasampleapproach.couchbase.Customer.repository.CustomerRepository;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Film.model.Richiesta;
 import com.javasampleapproach.couchbase.Film.repository.RichiestaRepository;
@@ -14,9 +13,6 @@ public class RichiestaServiceImpl implements RichiestaService {
 
     @Autowired
     private RichiestaRepository richiestaRepository;
-
-    @Autowired
-    private CustomerRepository customerRepository;
 
     @Override
     public List<Richiesta> getAllRichieste() {

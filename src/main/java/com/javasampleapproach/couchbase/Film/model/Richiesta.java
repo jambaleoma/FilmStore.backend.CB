@@ -1,6 +1,5 @@
 package com.javasampleapproach.couchbase.Film.model;
 
-import com.couchbase.client.deps.com.fasterxml.jackson.annotation.JsonProperty;
 import com.couchbase.client.java.repository.annotation.Field;
 import com.couchbase.client.java.repository.annotation.Id;
 import lombok.Data;

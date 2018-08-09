@@ -1,6 +1,5 @@
 package com.javasampleapproach.couchbase.Film.service;
 
-import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.model.Richiesta;
 
 import java.util.List;

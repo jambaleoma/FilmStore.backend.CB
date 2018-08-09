@@ -8,8 +8,6 @@ import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
-import java.util.Objects;
-
 @Document
 @Data
 public class Film {
@@ -27,9 +25,4 @@ public class Film {
 
     @Field
     private String formato;
-
-    public Film(String nome, String formato) {
-        this.nome = nome;
-        this.formato = formato;
-    }
 }
