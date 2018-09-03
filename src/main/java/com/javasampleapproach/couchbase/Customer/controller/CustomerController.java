@@ -29,9 +29,9 @@ public class CustomerController {
 
     @CrossOrigin
     @GetMapping(value = "/byName/{name}")
-    private ResponseEntity getAllCustomersByName(@PathVariable String name) {
+    private ResponseEntity getCustomerByName(@PathVariable String name) {
         try {
-            List<Customer> customers = this.customerService.getAllCustomersByName(name);
+            Customer customers = this.customerService.getCustomerByName(name);
             return ResponseEntity.status(HttpStatus.OK).header("Lista Customers per Nome", "--- OK --- Lista Customers per Nome Trovata Con Successo").body(customers);
         } catch (Exception e) {
             throw e;
@@ -49,6 +49,7 @@ public class CustomerController {
         }
     }
 
+    @CrossOrigin
     @PostMapping(value = "/insertCustomer")
     public ResponseEntity addCustomer(@RequestBody Customer c) {
         try {
@@ -59,16 +60,18 @@ public class CustomerController {
         }
     }
 
+    @CrossOrigin
     @PutMapping(value = "/upDateCustomer/{id}")
     private ResponseEntity updateCustomer (@RequestBody Customer NuovoCustomer, @PathVariable String id) {
         try {
             Customer customerAggiornato = customerService.updateCustomer(NuovoCustomer, id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Customer", "--- OK --- Customer Aggiornato Con Successo").body(customerAggiornato.toString());
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Customer", "--- OK --- Customer Aggiornato Con Successo").body(getCustomerByName(customerAggiornato.getFirstName()).getBody());
         } catch (Exception e) {
             throw e;
         }
     }
 
+    @CrossOrigin
     @DeleteMapping(value = "/deleteCustomerById/{id}")
     private ResponseEntity deleteCustomerById(@PathVariable String id) {
         try {

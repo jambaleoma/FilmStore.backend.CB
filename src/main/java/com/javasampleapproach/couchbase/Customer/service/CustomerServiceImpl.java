@@ -25,16 +25,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> getAllCustomersByName(String firstName) {
-        List<Customer> customers = new ArrayList<>();
-        for (Customer c : customerRepository.findAll()) {
-            if (c.getFirstName().matches("(.*)" + firstName + "(.*)"))
-                customers.add(c);
+    public Customer getCustomerByName(String firstName) {
+        Customer c = new Customer();
+        for (Customer customer : customerRepository.findAll()) {
+            if (customer.getFirstName().matches("(.*)" + firstName + "(.*)")) {
+                c = customer;
+            }
         }
-        if (customers.size() == 0) {
-            throw new NotFoundException("Nessun Customer con Nome: " + firstName + " è stato Trovato");
-        }
-        return customers;
+        return c;
     }
 
     @Override
@@ -52,8 +50,15 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer updateCustomer(Customer nuovoCustomer, String id) {
-        Customer customerDaAggiornare =  this.getCustomerById(id);
-        return customerRepository.save(nuovoCustomer);
+        if (this.customerRepository.exists(id)) {
+            Customer c = this.getCustomerById(id);
+            c.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
+            this.customerRepository.getCouchbaseOperations().update(c);
+            return c;
+        }
+        else {
+            throw new NotFoundException("Customer NON Aggiornato");
+        }
     }
 
     @Override

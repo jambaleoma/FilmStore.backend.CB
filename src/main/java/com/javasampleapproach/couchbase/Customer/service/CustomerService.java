@@ -8,7 +8,7 @@ import java.util.List;
 public interface CustomerService {
 
         List<Customer> getAllCustomers();
-        List<Customer> getAllCustomersByName(String name);
+        Customer getCustomerByName(String name);
         Customer getCustomerById(String id);
         Customer addCustomer(Customer c);
         Customer updateCustomer (Customer nuovoCustomer, String id);
