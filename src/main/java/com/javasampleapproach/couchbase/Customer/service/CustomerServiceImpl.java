@@ -1,5 +1,6 @@
 package com.javasampleapproach.couchbase.Customer.service;
 
+import com.javasampleapproach.couchbase.Customer.controller.CustomerController;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Customer.model.Customer;
 import com.javasampleapproach.couchbase.Customer.repository.CustomerRepository;
@@ -8,9 +9,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Component("CustomerService")
 public class CustomerServiceImpl implements CustomerService {
+
+    private static final Logger LOGGER = Logger.getLogger( CustomerController.class.getName() );
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -21,6 +25,12 @@ public class CustomerServiceImpl implements CustomerService {
         if (customers.size() == 0) {
             throw new NotFoundException("Nessun Customer Trovato");
         }
+        StringBuilder listCustomer = new StringBuilder();
+        listCustomer.append("Lista Customers:\n");
+        for (Customer c : customers) {
+            listCustomer.append(c.toString() + "\n");
+        }
+        LOGGER.info(listCustomer.toString());
         return customers;
     }
 
@@ -32,6 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
                 c = customer;
             }
         }
+        LOGGER.info("Customer:\n" + c.toString());
         return c;
     }
 
@@ -40,6 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
         Customer c =  customerRepository.findOne(id);
         if (c == null)
             throw new NotFoundException("Customer con id: " + id + " NON Trovato");
+        LOGGER.info("Customer:\n" + c.toString());
         return c;
     }
 
@@ -54,6 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
             Customer c = this.getCustomerById(id);
             c.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
             this.customerRepository.getCouchbaseOperations().update(c);
+            LOGGER.info("Customer Aggiornato:\n" + c.toString());
             return c;
         }
         else {
@@ -65,6 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer deleteCustomerById(String id) {
         Customer c = this.getCustomerById(id);
         customerRepository.delete(c);
+        LOGGER.info("Customer Eliminato: " + c.toString());
         return c;
     }
 }
