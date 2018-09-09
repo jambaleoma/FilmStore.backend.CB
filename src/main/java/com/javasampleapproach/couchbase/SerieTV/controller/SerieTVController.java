@@ -41,7 +41,7 @@ public class SerieTVController {
     }
 
     @PostMapping(value = "/insertSerieTV")
-    public ResponseEntity addFilm(@RequestBody SerieTV stv) {
+    public ResponseEntity addSerieTV(@RequestBody SerieTV stv) {
         try {
             SerieTV serieTVSalvato = serieTVService.addSerieTV(stv);
             return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Film", "--- OK --- SerieTV Creata Con Successo").body(getAllSerieTVs().getBody());
@@ -51,7 +51,7 @@ public class SerieTVController {
     }
 
     @PostMapping(value = "/insertLocalListSerieTV/{formato}")
-    public ResponseEntity addFilmsList(@PathVariable String formato) {
+    public ResponseEntity addSerieTVsList(@PathVariable String formato) {
         try {
             List<SerieTV> listaSerieTV = serieTVService.addListaSerieTVs(formato);
             return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista SerieTV", "--- OK --- Lista SerieTV Creata Con Successo").body(listaSerieTV);
