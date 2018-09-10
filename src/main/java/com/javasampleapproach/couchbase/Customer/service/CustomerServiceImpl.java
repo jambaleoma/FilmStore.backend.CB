@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 @Component("CustomerService")
 public class CustomerServiceImpl implements CustomerService {
 
-    private static final Logger LOGGER = Logger.getLogger( CustomerController.class.getName() );
+    private static final Logger LOGGER = Logger.getLogger( CustomerServiceImpl.class.getName() );
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -26,9 +26,9 @@ public class CustomerServiceImpl implements CustomerService {
             throw new NotFoundException("Nessun Customer Trovato");
         }
         StringBuilder listCustomer = new StringBuilder();
-        listCustomer.append("Lista Customers:\n");
+        listCustomer.append("\nLista Utenti:\n");
         for (Customer c : customers) {
-            listCustomer.append(c.toString() + "\n");
+            listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
         }
         LOGGER.info(listCustomer.toString());
         return customers;

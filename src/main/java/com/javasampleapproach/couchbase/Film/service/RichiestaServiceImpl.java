@@ -1,15 +1,19 @@
 package com.javasampleapproach.couchbase.Film.service;
 
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
+import com.javasampleapproach.couchbase.Film.controller.RichiestaController;
 import com.javasampleapproach.couchbase.Film.model.Richiesta;
 import com.javasampleapproach.couchbase.Film.repository.RichiestaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Component("RichiestaService")
 public class RichiestaServiceImpl implements RichiestaService {
+
+    private static final Logger LOGGER = Logger.getLogger( RichiestaServiceImpl.class.getName() );
 
     @Autowired
     private RichiestaRepository richiestaRepository;
@@ -20,6 +24,12 @@ public class RichiestaServiceImpl implements RichiestaService {
         if (richieste == null) {
             throw new NotFoundException("Nessuna Richiesta Trovata");
         }
+        StringBuilder listCustomer = new StringBuilder();
+        listCustomer.append("\nLista Richieste:\n");
+        for (Richiesta r : richieste) {
+            listCustomer.append("Titolo Film Richiesto: " + r.getTitoloFilmRichiesto() + " Nome del Richiedente: " + r.getNomeCliente() + "\n");
+        }
+        LOGGER.info(listCustomer.toString());
         return richieste;
     }
 

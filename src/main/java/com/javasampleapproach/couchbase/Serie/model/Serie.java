@@ -1,4 +1,4 @@
-package com.javasampleapproach.couchbase.SerieTV.model;
+package com.javasampleapproach.couchbase.Serie.model;
 
 import com.couchbase.client.java.repository.annotation.Field;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,9 +8,11 @@ import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
+import javax.validation.constraints.NotNull;
+
 @Document
 @Data
-public class SerieTV {
+public class Serie {
 
     @Id
     @GeneratedValue(strategy = GenerationStrategy.UNIQUE)
@@ -25,9 +27,4 @@ public class SerieTV {
 
     @Field
     private String formato;
-
-    public SerieTV(String nome, String formato) {
-        this.nome = nome;
-        this.formato = formato;
-    }
 }

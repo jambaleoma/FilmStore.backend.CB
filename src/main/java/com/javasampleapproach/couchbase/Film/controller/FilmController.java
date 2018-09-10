@@ -27,6 +27,7 @@ public class FilmController {
         }
     }
 
+    @CrossOrigin
     @GetMapping(value = "/byName/{nome}")
     private ResponseEntity getAllFilmsByName(@PathVariable String nome) {
         try {
@@ -48,6 +49,7 @@ public class FilmController {
         }
     }
 
+    @CrossOrigin
     @GetMapping(value = "/formato/{formato}")
     private ResponseEntity getFilmByFormatoQuery(@PathVariable String formato) {
         try {
@@ -58,6 +60,7 @@ public class FilmController {
         }
     }
 
+    @CrossOrigin
     @PostMapping(value = "/insertFilm")
     public ResponseEntity addFilm(@RequestBody Film f) {
         try {
@@ -78,6 +81,7 @@ public class FilmController {
         }
     }*/
 
+    @CrossOrigin
     @DeleteMapping(value = "/deleteFilmById/{id}")
     private ResponseEntity deleteFilmById(@PathVariable String id) {
         try {
