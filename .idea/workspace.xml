@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ecd02e5-3e45-4a10-b250-fb40574fd4c8" name="Default" comment="ADD richiesta">
+      <change beforePath="$PROJECT_DIR$/.gitgnore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitgnore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,21 +19,26 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SerieController.java" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SerieController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
+            <state relative-caret-position="100">
               <caret line="67" column="158" selection-start-line="67" selection-start-column="158" selection-end-line="67" selection-end-column="158" />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitgnore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitgnore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="RichiestaController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/RichiestaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="901">
+              <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -97,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/controller/WebController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Setting/SpringSecurityConfig.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/.gitgnore" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/model/Film.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/FilmServiceImpl.java" />
@@ -131,6 +135,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/service/CustomerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" />
+        <option value="$PROJECT_DIR$/.gitgnore" />
       </list>
     </option>
   </component>
@@ -151,8 +156,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="458" />
-    <option name="y" value="174" />
+    <option name="x" value="2220" />
+    <option name="y" value="74" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -162,9 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,6 +259,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -447,29 +452,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32881" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" weight="0.434238" />
-      <window_info anchor="right" id="Maven Projects" order="6" weight="0.11567164" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4989339" weight="0.33924845" />
+      <window_info anchor="right" id="Maven Projects" order="6" visible="true" weight="0.11567164" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4989339" visible="true" weight="0.2275574" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3183716" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.26096034" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74666667" side_tool="true" visible="true" weight="0.24786781" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74666667" side_tool="true" visible="true" weight="0.25053304" />
       <window_info id="Structure" order="1" sideWeight="0.25333333" side_tool="true" weight="0.21959943" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" visible="true" weight="0.3862213" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.3862213" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="7" sideWeight="0.50136614" side_tool="true" weight="0.1716418" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -477,6 +481,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32985386" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32881" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -536,13 +541,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="411" selection-start-line="411" selection-end-line="411" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -808,26 +806,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="53" column="46" lean-forward="true" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
-          <folding>
-            <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2153#2154#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/RichiestaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="901">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
+        <state relative-caret-position="100">
           <caret line="67" column="158" selection-start-line="67" selection-start-column="158" selection-end-line="67" selection-end-column="158" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitgnore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
