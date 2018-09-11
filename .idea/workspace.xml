@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5ecd02e5-3e45-4a10-b250-fb40574fd4c8" name="Default" comment="ADD richiesta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/service/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/FilmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Gemma/controller/GemmaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Gemma/model/Gemma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/model/Serie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Gemma/repository/GemmaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/repository/SerieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Gemma/service/GemmaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/service/SerieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Gemma/service/GemmaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/service/SerieServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/controller/SerieTVController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/model/SerieTV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/repository/SerieTVRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +19,26 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="SerieController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="67" column="158" selection-start-line="67" selection-start-column="158" selection-end-line="67" selection-end-column="158" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RichiestaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/RichiestaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,12 +125,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/repository/SerieRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/service/SerieService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/FilmController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/model/Serie.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/service/SerieServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/service/CustomerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java" />
       </list>
     </option>
   </component>
@@ -143,8 +150,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1913" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="458" />
+    <option name="y" value="174" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -154,9 +162,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,6 +206,45 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="couchbase" type="462c0819:PsiDirectoryNode" />
               <item name="Film" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FilmStore.backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FilmStore.backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="couchbase" type="462c0819:PsiDirectoryNode" />
+              <item name="Film" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FilmStore.backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FilmStore.backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="couchbase" type="462c0819:PsiDirectoryNode" />
+              <item name="Film" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FilmStore.backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FilmStore.backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="couchbase" type="462c0819:PsiDirectoryNode" />
+              <item name="Serie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FilmStore.backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FilmStore.backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="couchbase" type="462c0819:PsiDirectoryNode" />
+              <item name="Serie" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FilmStore.backend" type="b2602c69:ProjectViewProjectNode" />
@@ -400,7 +447,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
@@ -415,8 +463,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.26096034" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74666667" side_tool="true" visible="true" weight="0.24520256" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32985386" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74666667" side_tool="true" visible="true" weight="0.24786781" />
       <window_info id="Structure" order="1" sideWeight="0.25333333" side_tool="true" weight="0.21959943" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -429,6 +476,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32985386" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -610,9 +658,6 @@
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpringBootCouchbase.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1437">
@@ -660,13 +705,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/model/SerieTV.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/model/SerieTV.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/model/Film.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -674,27 +713,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/controller/SerieTVController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/repository/SerieTVRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/controller/SerieTVController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/repository/SerieTVRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/repository/RichiestaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -716,13 +737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-463">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/SerieTV/service/SerieTVServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/repository/SerieRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -734,13 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/RichiestaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-562">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -772,13 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1135">
-          <caret line="74" column="44" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/FilmServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -793,17 +794,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/service/CustomerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="19" column="50" lean-forward="true" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpringBootCouchbase.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="53" column="46" lean-forward="true" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+          <folding>
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2153#2154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Film/controller/RichiestaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Serie/controller/SerieController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="67" column="158" selection-start-line="67" selection-start-column="158" selection-end-line="67" selection-end-column="158" />
         </state>
       </provider>
     </entry>
