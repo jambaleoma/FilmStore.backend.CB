@@ -53,7 +53,7 @@ public class SerieController {
     @PostMapping(value = "/insertSerie")
     public ResponseEntity addSerie(@RequestBody Serie g) {
         try {
-            Serie serieSalvata = serieService.addSerie(g);
+            serieService.addSerie(g);
             return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Serie", "--- OK --- Serie Creata Con Successo").body(getAllSerie().getBody());
         } catch (Exception e) {
             throw e;
@@ -64,7 +64,7 @@ public class SerieController {
     @PutMapping(value = "/upDateSerieById/{id}")
     private ResponseEntity updateSerie(@RequestBody Serie nuovaSerie, @PathVariable String id) {
         try {
-            Serie serieAggiornata = serieService.updateSerie(nuovaSerie, id);
+            serieService.updateSerie(nuovaSerie, id);
             return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Serie", "--- OK --- Serie Aggiornata Con Successo").body(getAllSerie().getBody());
         } catch (Exception e) {
             throw e;

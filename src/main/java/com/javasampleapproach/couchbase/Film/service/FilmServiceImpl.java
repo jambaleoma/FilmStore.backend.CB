@@ -60,6 +60,20 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public Film updateFilmById(Film nuovoFilm, String id) {
+        if (filmRepository.exists(id)) {
+            Film filmDaAggiornare = filmRepository.findOne(id);
+            filmDaAggiornare.setNome(nuovoFilm.getNome());
+            filmDaAggiornare.setAnno(nuovoFilm.getAnno());
+            filmDaAggiornare.setFormato(nuovoFilm.getFormato());
+            this.filmRepository.getCouchbaseOperations().update(filmDaAggiornare);
+            return filmDaAggiornare;
+        } else {
+            throw new NotFoundException("Film con id: " + id + " NON Trovato");
+        }
+    }
+
+    @Override
     public Film deleteFilmById(String id) {
         Film f = this.getFilmById(id);
         filmRepository.delete(f);

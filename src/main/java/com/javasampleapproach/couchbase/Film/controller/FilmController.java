@@ -64,7 +64,7 @@ public class FilmController {
     @PostMapping(value = "/insertFilm")
     public ResponseEntity addFilm(@RequestBody Film f) {
         try {
-            Film filmSalvato = filmsService.addFilm(f);
+            filmsService.addFilm(f);
             return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Film", "--- OK --- Film Creato Con Successo").body(getAllFilms().getBody());
         } catch (Exception e) {
             throw e;
@@ -80,6 +80,17 @@ public class FilmController {
             throw e;
         }
     }*/
+
+    @CrossOrigin
+    @PutMapping(value = "/upDateFilmById/{id}")
+    private ResponseEntity upDateFilmById(@RequestBody Film nuovoFilm, @PathVariable String id) {
+        try {
+            filmsService.updateFilmById(nuovoFilm, id);
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Film", "--- OK --- Film Aggiornato Con Successo").body(getAllFilms().getBody());
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 
     @CrossOrigin
     @DeleteMapping(value = "/deleteFilmById/{id}")
