@@ -42,7 +42,10 @@ public class CustomerServiceImpl implements CustomerService {
                 c = customer;
             }
         }
-        LOGGER.info("Customer:\n" + c.toString());
+        StringBuilder listCustomer = new StringBuilder();
+        listCustomer.append("\nUtente:\n");
+            listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
+        LOGGER.info(listCustomer.toString());
         return c;
     }
 
@@ -51,7 +54,10 @@ public class CustomerServiceImpl implements CustomerService {
         Customer c =  customerRepository.findOne(id);
         if (c == null)
             throw new NotFoundException("Customer con id: " + id + " NON Trovato");
-        LOGGER.info("Customer:\n" + c.toString());
+        StringBuilder listCustomer = new StringBuilder();
+        listCustomer.append("\nUtente:\n");
+        listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
+        LOGGER.info(listCustomer.toString());
         return c;
     }
 
@@ -66,7 +72,10 @@ public class CustomerServiceImpl implements CustomerService {
             Customer c = this.getCustomerById(id);
             c.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
             this.customerRepository.getCouchbaseOperations().update(c);
-            LOGGER.info("Customer Aggiornato:\n" + c.toString());
+            StringBuilder listCustomer = new StringBuilder();
+            listCustomer.append("\nUtente Aggiornato:\n");
+            listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
+            LOGGER.info(listCustomer.toString());
             return c;
         }
         else {
@@ -78,7 +87,10 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer deleteCustomerById(String id) {
         Customer c = this.getCustomerById(id);
         customerRepository.delete(c);
-        LOGGER.info("Customer Eliminato: " + c.toString());
+        StringBuilder listCustomer = new StringBuilder();
+        listCustomer.append("\nUtente Eliminato:\n");
+        listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
+        LOGGER.info(listCustomer.toString());
         return c;
     }
 }
