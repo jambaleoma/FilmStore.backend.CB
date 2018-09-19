@@ -43,7 +43,7 @@ public class CustomerController {
     private ResponseEntity getCustomerById(@PathVariable String id) {
         try {
             Customer customerById = this.customerService.getCustomerById(id);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Customer", "--- OK --- Customer Trovato Con Successo").body(customerById);
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Customer", "--- OK --- Customer Trovato Con Successo").body(customerById);
         } catch (Exception e) {
             throw e;
         }

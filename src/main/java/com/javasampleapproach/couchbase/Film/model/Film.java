@@ -25,4 +25,10 @@ public class Film {
 
     @Field
     private String formato;
+
+    @Field
+    private String linguaAudio;
+
+    @Field
+    private String linguaSottotitoli;
 }

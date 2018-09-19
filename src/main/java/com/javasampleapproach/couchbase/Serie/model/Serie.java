@@ -27,4 +27,16 @@ public class Serie {
 
     @Field
     private String formato;
+
+    @Field
+    private Integer anno;
+
+    @Field
+    private Integer numeroEpisodi;
+
+    @Field
+    private String linguaAudio;
+
+    @Field
+    private String linguaSottotitoli;
 }

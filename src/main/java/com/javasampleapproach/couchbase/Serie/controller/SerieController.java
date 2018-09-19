@@ -43,7 +43,7 @@ public class SerieController {
     private ResponseEntity getSerieById(@PathVariable String id) {
         try {
             Serie serieById = this.serieService.getSerieById(id);
-            return ResponseEntity.status(HttpStatus.FOUND).header("Ricerca Serie", "--- OK --- Serie Trovato Con Successo").body(serieById);
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Serie", "--- OK --- Serie Trovato Con Successo").body(serieById);
         } catch (Exception e) {
             throw e;
         }
