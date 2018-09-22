@@ -25,4 +25,10 @@ public class Richiesta {
 
     @Field
     private String nomeCliente;
+
+    @Field
+    private String stato;
+
+    @Field
+    private String note;
 }

@@ -63,6 +63,8 @@ public class RichiestaServiceImpl implements RichiestaService {
             r.setFormatoFilmRichiesto(nuovaRichiesta.getFormatoFilmRichiesto());
             r.setDataInserimento(nuovaRichiesta.getDataInserimento());
             r.setNomeCliente(nuovaRichiesta.getNomeCliente());
+            r.setStato(nuovaRichiesta.getStato());
+            r.setNote(nuovaRichiesta.getNote());
             this.richiestaRepository.getCouchbaseOperations().update(r);
             return r;
         }
