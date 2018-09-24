@@ -65,7 +65,7 @@ public class CustomerController {
     private ResponseEntity updateCustomer (@RequestBody Customer NuovoCustomer, @PathVariable String id) {
         try {
             Customer customerAggiornato = customerService.updateCustomer(NuovoCustomer, id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Customer", "--- OK --- Customer Aggiornato Con Successo").body(getCustomerByName(customerAggiornato.getFirstName()).getBody());
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Customer", "--- OK --- Customer Aggiornato Con Successo").body(getAllCustomers().getBody());
         } catch (Exception e) {
             throw e;
         }

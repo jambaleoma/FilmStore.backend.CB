@@ -31,7 +31,7 @@ public class Customer {
 	private String value;
 
 	@Field
-	private String numeroRichieste;
+	private Integer numeroRichieste;
 
 
 }

@@ -62,12 +62,14 @@ public class SerieServiceImpl implements SerieService {
         if (serieRepository.exists(id)) {
             Serie serieDaAggiornare = serieRepository.findOne(id);
             serieDaAggiornare.setNome(nuovaSerie.getNome());
+            serieDaAggiornare.setStagioni(nuovaSerie.getStagioni());
             serieDaAggiornare.setNumeroStagione(nuovaSerie.getNumeroStagione());
             serieDaAggiornare.setFormato(nuovaSerie.getFormato());
             serieDaAggiornare.setAnno(nuovaSerie.getAnno());
             serieDaAggiornare.setLinguaAudio(nuovaSerie.getLinguaAudio());
             serieDaAggiornare.setLinguaSottotitoli(nuovaSerie.getLinguaSottotitoli());
             serieDaAggiornare.setNumeroEpisodi(nuovaSerie.getNumeroEpisodi());
+            serieDaAggiornare.setUrlLocandina(nuovaSerie.getUrlLocandina());
             this.serieRepository.getCouchbaseOperations().update(serieDaAggiornare);
             return serieDaAggiornare;
         } else {

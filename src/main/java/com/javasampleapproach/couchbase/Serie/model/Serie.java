@@ -23,6 +23,9 @@ public class Serie {
     private String nome;
 
     @Field
+    private String stagioni;
+
+    @Field
     private Integer numeroStagione;
 
     @Field
@@ -39,4 +42,7 @@ public class Serie {
 
     @Field
     private String linguaSottotitoli;
+
+    @Field
+    private String urlLocandina;
 }

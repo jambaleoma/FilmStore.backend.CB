@@ -68,15 +68,20 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer updateCustomer(Customer nuovoCustomer, String id) {
-        if (this.customerRepository.exists(id)) {
-            Customer c = this.getCustomerById(id);
-            c.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
-            this.customerRepository.getCouchbaseOperations().update(c);
+        if (customerRepository.exists(id)) {
+            Customer customerDaAggiornare = customerRepository.findOne(id);
+            customerDaAggiornare.setFirstName(nuovoCustomer.getFirstName());
+            customerDaAggiornare.setLastName(nuovoCustomer.getLastName());
+            customerDaAggiornare.setPassword(nuovoCustomer.getPassword());
+            customerDaAggiornare.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
+            customerDaAggiornare.setValue(nuovoCustomer.getValue());
+            customerDaAggiornare.setLabel(nuovoCustomer.getLabel());
+            this.customerRepository.getCouchbaseOperations().update(customerDaAggiornare);
             StringBuilder listCustomer = new StringBuilder();
             listCustomer.append("\nUtente Aggiornato:\n");
-            listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
+            listCustomer.append("Nome: " + customerDaAggiornare.getFirstName() + " Cognome: " + customerDaAggiornare.getLastName() + "\n");
             LOGGER.info(listCustomer.toString());
-            return c;
+            return customerDaAggiornare;
         }
         else {
             throw new NotFoundException("Customer NON Aggiornato");
