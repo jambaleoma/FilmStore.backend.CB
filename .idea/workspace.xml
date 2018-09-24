@@ -2,6 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ecd02e5-3e45-4a10-b250-fb40574fd4c8" name="Default" comment="ADD richiesta">
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Customer/controller/CustomerController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Customer/model/Customer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Customer/repository/CustomerRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Customer/service/CustomerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Customer/service/CustomerServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Exception/AlreadyExistException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Exception/BadRequestException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Exception/CustomResponseEntityExceptionHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Exception/ExceptionResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Exception/NotCreatedException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Exception/NotFoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/controller/FilmController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/controller/RichiestaController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/model/Film.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/model/Richiesta.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/repository/FilmRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/repository/RichiestaRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/service/FilmService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/service/FilmServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/service/RichiestaService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Film/service/RichiestaServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Serie/controller/SerieController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Serie/model/Serie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Serie/repository/SerieRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Serie/service/SerieService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/Serie/service/SerieServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/javasampleapproach/couchbase/SpringBootCouchbaseApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/javasampleapproach/couchbase/SpringBootCouchbaseApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javasampleapproach/couchbase/Customer/model/Customer.java" afterDir="false" />
@@ -493,7 +522,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
@@ -505,7 +533,7 @@
       <window_info anchor="right" id="Maven Projects" order="6" visible="true" weight="0.11567164" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4989339" weight="0.2275574" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24843423" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.26096034" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.26096034" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.74666667" side_tool="true" visible="true" weight="0.20202559" />
@@ -514,7 +542,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" visible="true" weight="0.26304802" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.36430064" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="7" sideWeight="0.50136614" side_tool="true" weight="0.1716418" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
