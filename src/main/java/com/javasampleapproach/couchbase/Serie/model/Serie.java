@@ -38,6 +38,9 @@ public class Serie {
     private Integer numeroEpisodi;
 
     @Field
+    private String[] episodi;
+
+    @Field
     private String linguaAudio;
 
     @Field

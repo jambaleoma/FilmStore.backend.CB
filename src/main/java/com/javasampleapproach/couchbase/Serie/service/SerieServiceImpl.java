@@ -69,6 +69,7 @@ public class SerieServiceImpl implements SerieService {
             serieDaAggiornare.setLinguaAudio(nuovaSerie.getLinguaAudio());
             serieDaAggiornare.setLinguaSottotitoli(nuovaSerie.getLinguaSottotitoli());
             serieDaAggiornare.setNumeroEpisodi(nuovaSerie.getNumeroEpisodi());
+            serieDaAggiornare.setEpisodi(nuovaSerie.getEpisodi());
             serieDaAggiornare.setUrlLocandina(nuovaSerie.getUrlLocandina());
             this.serieRepository.getCouchbaseOperations().update(serieDaAggiornare);
             return serieDaAggiornare;
