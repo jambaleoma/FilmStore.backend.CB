@@ -6,7 +6,7 @@ import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
+//import java.io.File;
 import java.util.*;
 
 @Component("FilmService")
@@ -66,6 +66,8 @@ public class FilmServiceImpl implements FilmService {
             filmDaAggiornare.setNome(nuovoFilm.getNome());
             filmDaAggiornare.setAnno(nuovoFilm.getAnno());
             filmDaAggiornare.setFormato(nuovoFilm.getFormato());
+            filmDaAggiornare.setLinguaAudio(nuovoFilm.getLinguaAudio());
+            filmDaAggiornare.setLinguaSottotitoli(nuovoFilm.getLinguaSottotitoli());
             this.filmRepository.getCouchbaseOperations().update(filmDaAggiornare);
             return filmDaAggiornare;
         } else {
@@ -111,11 +113,11 @@ public class FilmServiceImpl implements FilmService {
             }
         }
         return listaFilm;
-    }*/
+    }
 
     private static File[] trovaFile(File from) {
         File[] files = from.listFiles();
         return files;
-    }
+    }*/
 
 }
