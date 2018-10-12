@@ -63,6 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer addCustomer(Customer c) {
+        c.setNumeroRichieste(0);
         return customerRepository.save(c);
     }
 
