@@ -33,5 +33,7 @@ public class Customer {
 	@Field
 	private Integer numeroRichieste;
 
+	@Field
+	private boolean isAdmin;
 
 }
