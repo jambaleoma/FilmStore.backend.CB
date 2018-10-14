@@ -47,5 +47,8 @@ public class Serie {
     private String linguaSottotitoli;
 
     @Field
+    private String trama;
+
+    @Field
     private String urlLocandina;
 }

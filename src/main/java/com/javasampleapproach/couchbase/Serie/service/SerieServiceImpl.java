@@ -71,6 +71,7 @@ public class SerieServiceImpl implements SerieService {
             serieDaAggiornare.setNumeroEpisodi(nuovaSerie.getNumeroEpisodi());
             serieDaAggiornare.setEpisodi(nuovaSerie.getEpisodi());
             serieDaAggiornare.setUrlLocandina(nuovaSerie.getUrlLocandina());
+            serieDaAggiornare.setTrama(nuovaSerie.getTrama());
             this.serieRepository.getCouchbaseOperations().update(serieDaAggiornare);
             return serieDaAggiornare;
         } else {
