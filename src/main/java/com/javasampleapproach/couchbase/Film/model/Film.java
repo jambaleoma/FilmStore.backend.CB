@@ -33,5 +33,8 @@ public class Film {
     private String linguaSottotitoli;
 
     @Field
+    private String trama;
+
+    @Field
     private String urlLocandina;
 }

@@ -69,6 +69,7 @@ public class FilmServiceImpl implements FilmService {
             filmDaAggiornare.setLinguaAudio(nuovoFilm.getLinguaAudio());
             filmDaAggiornare.setLinguaSottotitoli(nuovoFilm.getLinguaSottotitoli());
             filmDaAggiornare.setUrlLocandina(nuovoFilm.getUrlLocandina());
+            filmDaAggiornare.setTrama(nuovoFilm.getTrama());
             this.filmRepository.getCouchbaseOperations().update(filmDaAggiornare);
             return filmDaAggiornare;
         } else {
