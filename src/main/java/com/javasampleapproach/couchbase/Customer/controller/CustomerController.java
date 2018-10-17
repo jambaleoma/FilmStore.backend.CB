@@ -82,4 +82,15 @@ public class CustomerController {
         }
     }
 
+    @CrossOrigin
+    @PostMapping(value = "/loginCustomer/{psw}")
+    private ResponseEntity loginCustomer(@RequestBody Customer loggingCustomer, @PathVariable String psw) {
+        try {
+            Boolean login = customerService.loginCustomer(loggingCustomer, psw);
+            return ResponseEntity.status(HttpStatus.OK).header("Customer Loggato con Successo", "--- OK --- Il Customers è stato Loggato con Successo").body(login);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
 }

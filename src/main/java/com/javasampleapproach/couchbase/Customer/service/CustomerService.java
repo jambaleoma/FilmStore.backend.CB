@@ -13,5 +13,6 @@ public interface CustomerService {
         Customer addCustomer(Customer c);
         Customer updateCustomer (Customer nuovoCustomer, String id);
         Customer deleteCustomerById(String id);
+        Boolean loginCustomer(Customer loggingCustomer, String psw);
 }
 

@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
         }
         StringBuilder listCustomer = new StringBuilder();
         listCustomer.append("\nUtente:\n");
-            listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
+        listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
         LOGGER.info(listCustomer.toString());
         return c;
     }
@@ -99,5 +99,15 @@ public class CustomerServiceImpl implements CustomerService {
         listCustomer.append("Nome: " + c.getFirstName() + " Cognome: " + c.getLastName() + "\n");
         LOGGER.info(listCustomer.toString());
         return c;
+    }
+
+    @Override
+    public Boolean loginCustomer(Customer loggingCustomer, String psw) {
+        boolean login = false;
+        Customer c = customerRepository.findOne(loggingCustomer.getId());
+        if (c.getPassword().equals(psw)) {
+            login = true;
+        }
+        return login;
     }
 }
