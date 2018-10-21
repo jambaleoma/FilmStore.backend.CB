@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/rest/richieste")
@@ -84,4 +87,27 @@ public class RichiestaController {
             throw e;
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/statistics/richieste2Years/{year}")
+    private ResponseEntity getRichiesta2Statistics(@PathVariable String year) {
+        try {
+            ArrayList richieste2Year = this.richiestaService.getRichiesteForStatistiche(year);
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Richieste Per fini Statistici", "--- OK --- Richieste Trovate Con Successo").body(richieste2Year);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/statistics/years")
+    private ResponseEntity getStatisticsYears() {
+        try {
+            ArrayList statisticsYears = this.richiestaService.getRichiesteYearForStatistiche();
+            return ResponseEntity.status(HttpStatus.OK).header("Ricerca Anni Richieste Per fini Statistici", "--- OK --- Anni Richieste Trovati Con Successo").body(statisticsYears);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
 }
