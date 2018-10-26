@@ -8,20 +8,42 @@ import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
-import java.util.List;
-
 @Document
 @Data
-public class Serie {
+public class Stagione {
 
     @Id
     @GeneratedValue(strategy = GenerationStrategy.UNIQUE)
-    @JsonProperty("serie_id")
-    private String _id;
+    @JsonProperty("stagione_id")
+    private String id;
 
     @Field
-    private String nome;
+    private String serie_id;
 
     @Field
-    private List<Stagione> stagioni;
+    private Integer numeroStagione;
+
+    @Field
+    private String formato;
+
+    @Field
+    private Integer anno;
+
+    @Field
+    private Integer numeroEpisodi;
+
+    @Field
+    private String[] episodi;
+
+    @Field
+    private String linguaAudio;
+
+    @Field
+    private String linguaSottotitoli;
+
+    @Field
+    private String trama;
+
+    @Field
+    private String urlLocandina;
 }

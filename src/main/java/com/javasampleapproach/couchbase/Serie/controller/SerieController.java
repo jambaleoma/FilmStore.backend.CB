@@ -1,7 +1,9 @@
 package com.javasampleapproach.couchbase.Serie.controller;
 
-import com.javasampleapproach.couchbase.Serie.service.SerieService;
 import com.javasampleapproach.couchbase.Serie.model.Serie;
+import com.javasampleapproach.couchbase.Serie.model.Stagione;
+import com.javasampleapproach.couchbase.Serie.service.SerieService;
+import com.javasampleapproach.couchbase.Serie.service.StagioneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -64,8 +66,8 @@ public class SerieController {
     @PutMapping(value = "/upDateSerieById/{id}")
     private ResponseEntity updateSerie(@RequestBody Serie nuovaSerie, @PathVariable String id) {
         try {
-            serieService.updateSerie(nuovaSerie, id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Serie", "--- OK --- Serie Aggiornata Con Successo").body(getAllSerie().getBody());
+            Serie serieAggiornata = serieService.updateSerie(nuovaSerie, id);
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Serie", "--- OK --- Serie Aggiornata Con Successo").body(serieAggiornata);
         } catch (Exception e) {
             throw e;
         }
