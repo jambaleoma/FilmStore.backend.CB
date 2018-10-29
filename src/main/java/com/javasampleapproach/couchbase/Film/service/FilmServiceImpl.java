@@ -6,8 +6,10 @@ import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //import java.io.File;
-import java.util.*;
 
 @Component("FilmService")
 public class FilmServiceImpl implements FilmService {

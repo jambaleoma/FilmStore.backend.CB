@@ -1,6 +1,7 @@
 package com.javasampleapproach.couchbase.Film.service;
 
 import com.javasampleapproach.couchbase.Film.model.Film;
+
 import java.util.List;
 
 public interface FilmService {

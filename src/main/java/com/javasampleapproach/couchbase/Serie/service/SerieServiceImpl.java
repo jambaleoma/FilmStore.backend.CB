@@ -3,6 +3,7 @@ package com.javasampleapproach.couchbase.Serie.service;
 import com.javasampleapproach.couchbase.Exception.AlreadyExistException;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Serie.model.Serie;
+import com.javasampleapproach.couchbase.Serie.model.Stagione;
 import com.javasampleapproach.couchbase.Serie.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,9 @@ public class SerieServiceImpl implements SerieService {
 
     @Autowired
     private SerieRepository serieRepository;
+
+    @Autowired
+    private StagioneService stagioneService;
 
     @Override
     public List<Serie> getAllSerie() {
@@ -51,8 +55,8 @@ public class SerieServiceImpl implements SerieService {
     @Override
     public Serie addSerie(Serie s) {
         for (Serie serie : serieRepository.findAll()) {
-            if (serie.getId().equals(s.getId()))
-                throw new AlreadyExistException("La Serie con Id: " + s.getId() + " è già presente, Cambia l'ID se vuoi inserire la Serie");
+            if (serie.get_id().equals(s.get_id()))
+                throw new AlreadyExistException("La Serie con Id: " + s.get_id() + " è già presente, Cambia l'ID se vuoi inserire la Serie");
         }
         return serieRepository.save(s);
     }
@@ -61,17 +65,9 @@ public class SerieServiceImpl implements SerieService {
     public Serie updateSerie(Serie nuovaSerie, String id) {
         if (serieRepository.exists(id)) {
             Serie serieDaAggiornare = serieRepository.findOne(id);
+            List<Stagione> stagioni = stagioneService.getAllStagioniByIdSerie(id);
             serieDaAggiornare.setNome(nuovaSerie.getNome());
-            serieDaAggiornare.setStagioni(nuovaSerie.getStagioni());
-            serieDaAggiornare.setNumeroStagione(nuovaSerie.getNumeroStagione());
-            serieDaAggiornare.setFormato(nuovaSerie.getFormato());
-            serieDaAggiornare.setAnno(nuovaSerie.getAnno());
-            serieDaAggiornare.setLinguaAudio(nuovaSerie.getLinguaAudio());
-            serieDaAggiornare.setLinguaSottotitoli(nuovaSerie.getLinguaSottotitoli());
-            serieDaAggiornare.setNumeroEpisodi(nuovaSerie.getNumeroEpisodi());
-            serieDaAggiornare.setEpisodi(nuovaSerie.getEpisodi());
-            serieDaAggiornare.setUrlLocandina(nuovaSerie.getUrlLocandina());
-            serieDaAggiornare.setTrama(nuovaSerie.getTrama());
+            serieDaAggiornare.setStagioni(stagioni);
             this.serieRepository.getCouchbaseOperations().update(serieDaAggiornare);
             return serieDaAggiornare;
         } else {

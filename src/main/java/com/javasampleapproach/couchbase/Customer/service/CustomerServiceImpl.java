@@ -1,13 +1,11 @@
 package com.javasampleapproach.couchbase.Customer.service;
 
-import com.javasampleapproach.couchbase.Customer.controller.CustomerController;
-import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Customer.model.Customer;
 import com.javasampleapproach.couchbase.Customer.repository.CustomerRepository;
+import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 

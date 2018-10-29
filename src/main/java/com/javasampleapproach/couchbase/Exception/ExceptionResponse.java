@@ -2,9 +2,6 @@ package com.javasampleapproach.couchbase.Exception;
 
 // Definisce la struttura della Response di Errore
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-
 public class ExceptionResponse {
 
     private String timestamp;
