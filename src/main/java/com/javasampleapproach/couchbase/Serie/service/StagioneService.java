@@ -12,4 +12,5 @@ public interface StagioneService {
     Stagione addStagione(Stagione s);
     Stagione updateStagione (Stagione nuovaStagione, String id);
     Stagione deleteStagioneById(String id);
+    void deleteStagioniBySerieId(String id);
 }

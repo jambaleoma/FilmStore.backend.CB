@@ -3,6 +3,7 @@ package com.javasampleapproach.couchbase.Serie.service;
 import com.javasampleapproach.couchbase.Exception.AlreadyExistException;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Serie.model.Stagione;
+import com.javasampleapproach.couchbase.Serie.repository.SerieRepository;
 import com.javasampleapproach.couchbase.Serie.repository.StagioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,9 @@ public class StagioneServiceImpl implements StagioneService {
 
     @Autowired
     private StagioneRepository stagioneRepository;
+
+    @Autowired
+    private SerieRepository serieRepository;
 
     @Override
     public List<Stagione> getAllStagioni() {
@@ -32,9 +36,6 @@ public class StagioneServiceImpl implements StagioneService {
             if (s.getSerie_id().equals(serie_id)) {
                 stagioni.add(s);
             }
-        }
-        if (stagioni.size() == 0) {
-            throw new NotFoundException("Nessuna Stagione con Id_Serie: " + serie_id + " è stata Trovata");
         }
         return stagioni;
     }
@@ -84,6 +85,14 @@ public class StagioneServiceImpl implements StagioneService {
             return g;
         } else {
             throw new NotFoundException("Stagione con id: " + id + " NON Trovata");
+        }
+    }
+
+    @Override
+    public void deleteStagioniBySerieId(String id) {
+        List<Stagione> stagioni = getAllStagioniByIdSerie(id);
+        for (Stagione s : stagioni) {
+            stagioneRepository.delete(s);
         }
     }
 }

@@ -54,7 +54,7 @@ public class StagioneController {
     public ResponseEntity addStagione(@RequestBody Stagione s) {
         try {
             stagioneService.addStagione(s);
-            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Stagione", "--- OK --- Stagione Creata Con Successo").body(getAllStagioni().getBody());
+            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Stagione", "--- OK --- Stagione Creata Con Successo").body(getAllStagioniByIdSerie(s.getSerie_id()).getBody());
         } catch (Exception e) {
             throw e;
         }
@@ -65,7 +65,7 @@ public class StagioneController {
     private ResponseEntity updateStagione(@RequestBody Stagione nuovaStagione, @PathVariable String id) {
         try {
             stagioneService.updateStagione(nuovaStagione, id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Stagione", "--- OK --- Stagione Aggiornata Con Successo").body(getAllStagioni().getBody());
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Stagione", "--- OK --- Stagione Aggiornata Con Successo").body(getAllStagioniByIdSerie(nuovaStagione.getSerie_id()).getBody());
         } catch (Exception e) {
             throw e;
         }
@@ -77,6 +77,17 @@ public class StagioneController {
         try {
             stagioneService.deleteStagioneById(id);
             return ResponseEntity.status(HttpStatus.OK).header("Eliminazione Stagione", "--- OK --- Stagione Eliminata Con Successo").body("La Stagione con Id: " + id + " è stata Eliminata con Successo");
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
+    @DeleteMapping(value = "/deleteStagioniBySerieId/{id}")
+    private ResponseEntity deleteStagioniBySerieId(@PathVariable String id) {
+        try {
+            stagioneService.deleteStagioniBySerieId(id);
+            return ResponseEntity.status(HttpStatus.OK).header("Eliminazione Stagioni", "--- OK --- Stagioni Eliminate Con Successo").body("Le Stagioni della Serie con Id: " + id + " sono state Eliminate con Successo");
         } catch (Exception e) {
             throw e;
         }
