@@ -22,6 +22,12 @@ public class Customer {
 	private String lastName;
 
 	@Field
+	private String sesso;
+
+	@Field
+	private String dataDiNascita;
+
+	@Field
 	private String password;
 
 	@Field

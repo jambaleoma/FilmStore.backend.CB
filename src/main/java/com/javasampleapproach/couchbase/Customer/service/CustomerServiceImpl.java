@@ -71,6 +71,8 @@ public class CustomerServiceImpl implements CustomerService {
             Customer customerDaAggiornare = customerRepository.findOne(id);
             customerDaAggiornare.setFirstName(nuovoCustomer.getFirstName());
             customerDaAggiornare.setLastName(nuovoCustomer.getLastName());
+            customerDaAggiornare.setDataDiNascita(nuovoCustomer.getDataDiNascita());
+            customerDaAggiornare.setSesso(nuovoCustomer.getSesso());
             customerDaAggiornare.setPassword(nuovoCustomer.getPassword());
             customerDaAggiornare.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
             customerDaAggiornare.setValue(nuovoCustomer.getValue());
