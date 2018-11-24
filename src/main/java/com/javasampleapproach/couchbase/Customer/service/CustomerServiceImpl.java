@@ -23,6 +23,9 @@ public class CustomerServiceImpl implements CustomerService {
         if (customers.size() == 0) {
             throw new NotFoundException("Nessun Customer Trovato");
         }
+        for (Customer c : customers) {
+            c.setPassword("********");
+        }
         StringBuilder listCustomer = new StringBuilder();
         listCustomer.append("\nLista Utenti:\n");
         for (Customer c : customers) {
