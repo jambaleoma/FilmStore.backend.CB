@@ -86,6 +86,18 @@ public class FilmServiceImpl implements FilmService {
         return f;
     }
 
+    @Override
+    public Film deleteAudioFilm(String id) {
+        if (filmRepository.exists(id)) {
+            Film f = filmRepository.findOne(id);
+            f.setLinguaAudio(null);
+            f.setLinguaSottotitoli(null);
+            return filmRepository.save(f);
+        } else {
+            throw new NotFoundException("Film con id: " + id + " NON Trovato");
+        }
+    }
+
 /*    //Riempie il DB Couchbase Con i film nel disco di BackUp
     @Override
     public List<Film> addListaFilms(String formato) {

@@ -103,4 +103,15 @@ public class FilmController {
         }
     }
 
+    @CrossOrigin
+    @PutMapping(value = "/deleteAudioFilm/{id}")
+    private ResponseEntity deleteAudioFilm(@PathVariable String id) {
+        try {
+            filmsService.deleteAudioFilm(id);
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Film", "--- OK --- Film Aggiornato Con Successo").body(getAllFilms().getBody());
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
 }
