@@ -12,5 +12,5 @@ public interface SerieService {
     Serie addSerie(Serie s);
     Serie updateSerie (Serie nuovaSerie, String id);
     Serie deleteSerieById(String id);
-    List<Serie> addListaSerieByFormato(String formato);
+//  List<Serie> addListaSerieByFormato(String formato);
 }

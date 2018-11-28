@@ -86,7 +86,7 @@ public class SerieServiceImpl implements SerieService {
         }
     }
 
-    //Riempie il DB Couchbase Con le SerieTV nel disco di BackUp
+   /* //Riempie il DB Couchbase Con le SerieTV nel disco di BackUp
     @Override
     public List<Serie> addListaSerieByFormato(String formato) {
         //PC
@@ -109,7 +109,7 @@ public class SerieServiceImpl implements SerieService {
             }
         }
         return listaSerieTV;
-    }
+    }*/
 
     private static File[] trovaFile(File from) {
         File[] files = from.listFiles();

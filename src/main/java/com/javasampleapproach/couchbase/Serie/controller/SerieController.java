@@ -84,7 +84,7 @@ public class SerieController {
         }
     }
 
-    @CrossOrigin
+   /* @CrossOrigin
     @PostMapping(value = "/insertLocalListSerie/{formato}")
     public ResponseEntity addSerieByFormato(@PathVariable String formato) {
         try {
@@ -93,6 +93,6 @@ public class SerieController {
         } catch (Exception e) {
             throw e;
         }
-    }
+    }*/
 
 }

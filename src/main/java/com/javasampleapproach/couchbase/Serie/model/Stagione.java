@@ -8,6 +8,8 @@ import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
+import java.util.List;
+
 @Document
 @Data
 public class Stagione {
@@ -36,10 +38,10 @@ public class Stagione {
     private String[] episodi;
 
     @Field
-    private String linguaAudio;
+    private List<String> linguaAudio;
 
     @Field
-    private String linguaSottotitoli;
+    private List<String> linguaSottotitoli;
 
     @Field
     private String trama;

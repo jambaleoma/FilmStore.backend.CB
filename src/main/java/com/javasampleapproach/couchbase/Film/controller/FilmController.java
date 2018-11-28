@@ -71,16 +71,6 @@ public class FilmController {
         }
     }
 
-/*    @PostMapping(value = "/insertLocalListFilm/{formato}")
-    public ResponseEntity addFilmsList(@PathVariable String formato) {
-        try {
-            List<Film> listaFilm = filmsService.addListaFilms(formato);
-            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Film", "--- OK --- Lista Film Creata Con Successo").body(listaFilm);
-        } catch (Exception e) {
-            throw e;
-        }
-    }*/
-
     @CrossOrigin
     @PutMapping(value = "/upDateFilmById/{id}")
     private ResponseEntity upDateFilmById(@RequestBody Film nuovoFilm, @PathVariable String id) {
@@ -103,15 +93,16 @@ public class FilmController {
         }
     }
 
-    @CrossOrigin
-    @PutMapping(value = "/deleteAudioFilm/{id}")
-    private ResponseEntity deleteAudioFilm(@PathVariable String id) {
+    /*
+    @PostMapping(value = "/insertLocalListFilm/{formato}")
+    public ResponseEntity addFilmsList(@PathVariable String formato) {
         try {
-            filmsService.deleteAudioFilm(id);
-            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Film", "--- OK --- Film Aggiornato Con Successo").body(getAllFilms().getBody());
+            List<Film> listaFilm = filmsService.addListaFilms(formato);
+            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Film", "--- OK --- Lista Film Creata Con Successo").body(listaFilm);
         } catch (Exception e) {
             throw e;
         }
     }
+    */
 
 }
