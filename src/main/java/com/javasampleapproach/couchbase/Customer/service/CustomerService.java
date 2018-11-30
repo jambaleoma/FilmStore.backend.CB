@@ -1,6 +1,5 @@
 package com.javasampleapproach.couchbase.Customer.service;
 
-
 import com.javasampleapproach.couchbase.Customer.model.Customer;
 
 import java.util.List;

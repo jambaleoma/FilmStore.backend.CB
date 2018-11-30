@@ -3,7 +3,6 @@ package com.javasampleapproach.couchbase.Serie.service;
 import com.javasampleapproach.couchbase.Exception.AlreadyExistException;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Serie.model.Stagione;
-import com.javasampleapproach.couchbase.Serie.repository.SerieRepository;
 import com.javasampleapproach.couchbase.Serie.repository.StagioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,9 +15,6 @@ public class StagioneServiceImpl implements StagioneService {
 
     @Autowired
     private StagioneRepository stagioneRepository;
-
-    @Autowired
-    private SerieRepository serieRepository;
 
     @Override
     public List<Stagione> getAllStagioni() {
@@ -60,18 +56,18 @@ public class StagioneServiceImpl implements StagioneService {
     @Override
     public Stagione updateStagione(Stagione nuovaStagione, String id) {
         if (stagioneRepository.exists(id)) {
-            Stagione StagioneDaAggiornare = stagioneRepository.findOne(id);
-            StagioneDaAggiornare.setNumeroStagione(nuovaStagione.getNumeroStagione());
-            StagioneDaAggiornare.setFormato(nuovaStagione.getFormato());
-            StagioneDaAggiornare.setAnno(nuovaStagione.getAnno());
-            StagioneDaAggiornare.setLinguaAudio(nuovaStagione.getLinguaAudio());
-            StagioneDaAggiornare.setLinguaSottotitoli(nuovaStagione.getLinguaSottotitoli());
-            StagioneDaAggiornare.setNumeroEpisodi(nuovaStagione.getNumeroEpisodi());
-            StagioneDaAggiornare.setEpisodi(nuovaStagione.getEpisodi());
-            StagioneDaAggiornare.setUrlLocandina(nuovaStagione.getUrlLocandina());
-            StagioneDaAggiornare.setTrama(nuovaStagione.getTrama());
-            this.stagioneRepository.getCouchbaseOperations().update(StagioneDaAggiornare);
-            return StagioneDaAggiornare;
+            Stagione stagioneDaAggiornare = stagioneRepository.findOne(id);
+            stagioneDaAggiornare.setNumeroStagione(nuovaStagione.getNumeroStagione());
+            stagioneDaAggiornare.setFormato(nuovaStagione.getFormato());
+            stagioneDaAggiornare.setAnno(nuovaStagione.getAnno());
+            stagioneDaAggiornare.setLinguaAudio(nuovaStagione.getLinguaAudio());
+            stagioneDaAggiornare.setLinguaSottotitoli(nuovaStagione.getLinguaSottotitoli());
+            stagioneDaAggiornare.setNumeroEpisodi(nuovaStagione.getNumeroEpisodi());
+            stagioneDaAggiornare.setEpisodi(nuovaStagione.getEpisodi());
+            stagioneDaAggiornare.setUrlLocandina(nuovaStagione.getUrlLocandina());
+            stagioneDaAggiornare.setTrama(nuovaStagione.getTrama());
+            stagioneRepository.getCouchbaseOperations().update(stagioneDaAggiornare);
+            return stagioneDaAggiornare;
         } else {
             throw new NotFoundException("Stagione con id: " + id + " NON Trovata");
         }
