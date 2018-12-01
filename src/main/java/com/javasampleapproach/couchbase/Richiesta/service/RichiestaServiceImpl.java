@@ -38,7 +38,12 @@ public class RichiestaServiceImpl implements RichiestaService {
 
     @Override
     public List<Richiesta> getAllRichiesteByNomeCliente(String nomeCliente) {
-        List<Richiesta> richiesteByIdCliente = richiestaRepository.getRichiesteByNomeQuery(nomeCliente);
+        List<Richiesta> richiesteByIdCliente = new ArrayList<>();
+        for (Richiesta r : this.getAllRichieste()) {
+            if (r.getNomeCliente().equals(nomeCliente)) {
+                richiesteByIdCliente.add(r);
+            }
+        }
         if (richiesteByIdCliente.size() == 0) {
             throw new NotFoundException("Nessuna Richiesta Trovata");
         }
