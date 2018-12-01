@@ -3,8 +3,9 @@ package com.javasampleapproach.couchbase.Serie.service;
 import com.javasampleapproach.couchbase.Exception.AlreadyExistException;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Serie.model.Serie;
-import com.javasampleapproach.couchbase.Serie.model.Stagione;
 import com.javasampleapproach.couchbase.Serie.repository.SerieRepository;
+import com.javasampleapproach.couchbase.Stagione.model.Stagione;
+import com.javasampleapproach.couchbase.Stagione.service.StagioneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

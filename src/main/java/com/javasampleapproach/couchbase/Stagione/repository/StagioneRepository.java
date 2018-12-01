@@ -1,6 +1,6 @@
-package com.javasampleapproach.couchbase.Serie.repository;
+package com.javasampleapproach.couchbase.Stagione.repository;
 
-import com.javasampleapproach.couchbase.Serie.model.Stagione;
+import com.javasampleapproach.couchbase.Stagione.model.Stagione;
 import org.springframework.data.couchbase.core.query.N1qlPrimaryIndexed;
 import org.springframework.data.couchbase.core.query.ViewIndexed;
 import org.springframework.data.couchbase.repository.CouchbasePagingAndSortingRepository;

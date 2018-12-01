@@ -2,6 +2,7 @@ package com.javasampleapproach.couchbase.Serie.model;
 
 import com.couchbase.client.java.repository.annotation.Field;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.javasampleapproach.couchbase.Stagione.model.Stagione;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;

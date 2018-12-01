@@ -1,4 +1,4 @@
-package com.javasampleapproach.couchbase.Film.model;
+package com.javasampleapproach.couchbase.Richiesta.model;
 
 import com.couchbase.client.java.repository.annotation.Field;
 import com.couchbase.client.java.repository.annotation.Id;

@@ -21,7 +21,19 @@ public class Voto {
     private String idFilm;
 
     @Field
+    private String nomeFilm;
+
+    @Field
     private String idCustomer;
+
+    @Field
+    private String firstNameCustomer;
+
+    @Field
+    private String lastNameCustomer;
+
+    @Field
+    private String dataCreazioneVoto;
 
     @Field
     private Integer votazione;

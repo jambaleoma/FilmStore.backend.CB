@@ -1,7 +1,7 @@
-package com.javasampleapproach.couchbase.Serie.controller;
+package com.javasampleapproach.couchbase.Stagione.controller;
 
-import com.javasampleapproach.couchbase.Serie.model.Stagione;
-import com.javasampleapproach.couchbase.Serie.service.StagioneService;
+import com.javasampleapproach.couchbase.Stagione.model.Stagione;
+import com.javasampleapproach.couchbase.Stagione.service.StagioneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.javasampleapproach.couchbase.Serie.model;
+package com.javasampleapproach.couchbase.Stagione.model;
 
 import com.couchbase.client.java.repository.annotation.Field;
 import com.fasterxml.jackson.annotation.JsonProperty;

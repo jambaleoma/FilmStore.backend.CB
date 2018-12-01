@@ -1,6 +1,6 @@
-package com.javasampleapproach.couchbase.Film.service;
+package com.javasampleapproach.couchbase.Richiesta.service;
 
-import com.javasampleapproach.couchbase.Film.model.Richiesta;
+import com.javasampleapproach.couchbase.Richiesta.model.Richiesta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public interface RichiestaService {
     List<Richiesta> getAllRichiesteByNomeCliente(String nomeCliente);
     Richiesta getRichiestaById(String id);
     Richiesta addRichiesta(Richiesta r);
-    Richiesta updateRichiesta (Richiesta nuovaRichiesta, String id);
+    Richiesta updateRichiesta(Richiesta nuovaRichiesta, String id);
     Richiesta deleteRichiestaById(String id);
     Map<String, Map<String, Integer>> getRichiesteForStatisticsMethod();
     ArrayList getRichiesteYearForStatistiche();

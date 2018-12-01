@@ -1,7 +1,7 @@
-package com.javasampleapproach.couchbase.Film.controller;
+package com.javasampleapproach.couchbase.Richiesta.controller;
 
-import com.javasampleapproach.couchbase.Film.model.Richiesta;
-import com.javasampleapproach.couchbase.Film.service.RichiestaService;
+import com.javasampleapproach.couchbase.Richiesta.model.Richiesta;
+import com.javasampleapproach.couchbase.Richiesta.service.RichiestaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

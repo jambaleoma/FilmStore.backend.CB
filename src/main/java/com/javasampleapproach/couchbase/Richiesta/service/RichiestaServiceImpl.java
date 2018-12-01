@@ -1,8 +1,8 @@
-package com.javasampleapproach.couchbase.Film.service;
+package com.javasampleapproach.couchbase.Richiesta.service;
 
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
-import com.javasampleapproach.couchbase.Film.model.Richiesta;
-import com.javasampleapproach.couchbase.Film.repository.RichiestaRepository;
+import com.javasampleapproach.couchbase.Richiesta.model.Richiesta;
+import com.javasampleapproach.couchbase.Richiesta.repository.RichiestaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

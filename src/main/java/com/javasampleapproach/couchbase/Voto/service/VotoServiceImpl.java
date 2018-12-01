@@ -56,6 +56,10 @@ public class VotoServiceImpl implements VotoService{
     public Voto updateVoto(Voto nuovoVoto, String id) {
         if (votoRepository.exists(id)) {
             Voto votoDaAggiornare = votoRepository.findOne(id);
+            votoDaAggiornare.setNomeFilm(nuovoVoto.getNomeFilm());
+            votoDaAggiornare.setFirstNameCustomer(nuovoVoto.getFirstNameCustomer());
+            votoDaAggiornare.setLastNameCustomer(nuovoVoto.getLastNameCustomer());
+            votoDaAggiornare.setDataCreazioneVoto(nuovoVoto.getDataCreazioneVoto());
             votoDaAggiornare.setVotazione(nuovoVoto.getVotazione());
             votoDaAggiornare.setIdCustomer(nuovoVoto.getIdCustomer());
             votoDaAggiornare.setIdFilm(nuovoVoto.getIdFilm());
