@@ -76,7 +76,6 @@ public class CustomerServiceImpl implements CustomerService {
             customerDaAggiornare.setLastName(nuovoCustomer.getLastName());
             customerDaAggiornare.setDataDiNascita(nuovoCustomer.getDataDiNascita());
             customerDaAggiornare.setSesso(nuovoCustomer.getSesso());
-            customerDaAggiornare.setPassword(nuovoCustomer.getPassword());
             customerDaAggiornare.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
             customerDaAggiornare.setValue(nuovoCustomer.getValue());
             customerDaAggiornare.setLabel(nuovoCustomer.getLabel());
