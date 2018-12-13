@@ -68,6 +68,7 @@ public class FilmServiceImpl implements FilmService {
             filmDaAggiornare.setNome(nuovoFilm.getNome());
             filmDaAggiornare.setAnno(nuovoFilm.getAnno());
             filmDaAggiornare.setFormato(nuovoFilm.getFormato());
+            filmDaAggiornare.setCategoria(nuovoFilm.getCategoria());
             filmDaAggiornare.setLinguaAudio(nuovoFilm.getLinguaAudio());
             filmDaAggiornare.setLinguaSottotitoli(nuovoFilm.getLinguaSottotitoli());
             filmDaAggiornare.setUrlLocandina(nuovoFilm.getUrlLocandina());

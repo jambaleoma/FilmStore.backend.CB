@@ -29,6 +29,9 @@ public class Film {
     private String formato;
 
     @Field
+    private List<String> categoria;
+
+    @Field
     private List<String> linguaAudio;
 
     @Field
