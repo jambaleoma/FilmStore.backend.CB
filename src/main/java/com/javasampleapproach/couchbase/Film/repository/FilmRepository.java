@@ -4,15 +4,14 @@ import com.javasampleapproach.couchbase.Film.model.Film;
 import org.springframework.data.couchbase.core.query.N1qlPrimaryIndexed;
 import org.springframework.data.couchbase.core.query.Query;
 import org.springframework.data.couchbase.core.query.ViewIndexed;
-import org.springframework.data.couchbase.repository.CouchbasePagingAndSortingRepository;
+import org.springframework.data.couchbase.repository.CouchbaseRepository;
 
 import java.util.List;
 
 @N1qlPrimaryIndexed
 @ViewIndexed(designDoc = "film")
-public interface FilmRepository extends CouchbasePagingAndSortingRepository<Film, String> {
+public interface FilmRepository extends CouchbaseRepository<Film, String> {
 
-    @Query("#{#n1ql.selectEntity} where #{#n1ql.filter} AND formato like $1")
-    List<Film> getFilmByFormatoQuery(String formato);
-
+    @Query("SELECT META(FilmStore).id AS _ID, META(FilmStore).cas AS _CAS, FilmStore.* FROM FilmStore WHERE _class = 'com.javasampleapproach.couchbase.Film.model.Film'")
+    List<Film> getFilmByFormatoQuery();
 }

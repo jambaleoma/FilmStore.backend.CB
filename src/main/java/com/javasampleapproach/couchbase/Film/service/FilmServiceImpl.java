@@ -49,11 +49,14 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Film> getFilmByFormatoQuery(String formato) {
-        List<Film> f =  filmRepository.getFilmByFormatoQuery(formato);
-        if (f.size() == 0) {
-            throw new NotFoundException("Film con Formato: " + formato + " NON Trovati");
+        List<Film> result = new ArrayList<>();
+        try {
+            Iterable<Film> filmIterable =  filmRepository.getFilmByFormatoQuery();
+            filmIterable.forEach(result::add);
+            return result;
+        } catch (Exception ex) {
+            throw ex;
         }
-        return f;
     }
 
     @Override
