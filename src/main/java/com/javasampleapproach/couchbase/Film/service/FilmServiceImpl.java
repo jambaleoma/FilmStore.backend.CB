@@ -1,5 +1,7 @@
 package com.javasampleapproach.couchbase.Film.service;
 
+import com.couchbase.client.java.query.N1qlQuery;
+import com.couchbase.client.java.query.SimpleN1qlQuery;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
@@ -49,14 +51,18 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Film> getFilmByFormatoQuery(String formato) {
-        List<Film> result = new ArrayList<>();
+        // List<Film> filmsByFormato;
+        List<Film> filmsByFormatoN1ql;
         try {
-            Iterable<Film> filmIterable =  filmRepository.getFilmByFormatoQuery();
-            filmIterable.forEach(result::add);
-            return result;
+            // filmsByFormato = filmRepository.getFilmByFormatoQuery(formato);
+            String statement = "select *, META().id AS _ID, META().cas AS _CAS, META().nome AS _nome from FilmStore where _class = 'com.javasampleapproach.couchbase.Film.model.Film'";
+            SimpleN1qlQuery query = N1qlQuery.simple(statement);
+            filmsByFormatoN1ql = filmRepository.getCouchbaseOperations().findByN1QL(query, Film.class);
+            System.out.println(filmsByFormatoN1ql);
         } catch (Exception ex) {
             throw ex;
         }
+        return filmsByFormatoN1ql;
     }
 
     @Override
