@@ -55,7 +55,10 @@ public class FilmServiceImpl implements FilmService {
         List<Film> filmsByFormatoN1ql;
         try {
             // filmsByFormato = filmRepository.getFilmByFormatoQuery(formato);
-            String statement = "select *, META().id AS _ID, META().cas AS _CAS, META().nome AS _nome from FilmStore where _class = 'com.javasampleapproach.couchbase.Film.model.Film'";
+            String statement = "SELECT *, META().id AS _ID, META().cas AS _CAS " +
+                    "FROM FilmStore " +
+                    "WHERE _class = 'com.javasampleapproach.couchbase.Film.model.Film' " +
+                    "AND formato = '" + formato + "'";
             SimpleN1qlQuery query = N1qlQuery.simple(statement);
             filmsByFormatoN1ql = filmRepository.getCouchbaseOperations().findByN1QL(query, Film.class);
             System.out.println(filmsByFormatoN1ql);
