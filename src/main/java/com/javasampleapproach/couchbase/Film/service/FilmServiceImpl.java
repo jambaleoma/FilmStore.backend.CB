@@ -51,10 +51,8 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Film> getFilmByFormatoQuery(String formato) {
-        // List<Film> filmsByFormato;
         List<Film> filmsByFormatoN1ql;
         try {
-            // filmsByFormato = filmRepository.getFilmByFormatoQuery(formato);
             String statement = "SELECT *, META().id AS _ID, META().cas AS _CAS " +
                     "FROM FilmStore " +
                     "WHERE _class = 'com.javasampleapproach.couchbase.Film.model.Film' " +
