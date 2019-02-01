@@ -111,9 +111,6 @@ public class RichiestaServiceImpl implements RichiestaService {
             }
             anno2_mese2richieste.get(anno).put(mese, anno2_mese2richieste.get(anno).get(mese) + 1);
         }
-        LOGGER.info(anno2_mese2richieste.get("2018").toString());
-        LOGGER.info(anno2_mese2richieste.get("2017").toString());
-        LOGGER.info(anno2_mese2richieste.keySet().toString());
         return anno2_mese2richieste;
     }
 
