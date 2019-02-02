@@ -79,6 +79,7 @@ public class CustomerServiceImpl implements CustomerService {
             customerDaAggiornare.setNumeroRichieste(nuovoCustomer.getNumeroRichieste());
             customerDaAggiornare.setValue(nuovoCustomer.getValue());
             customerDaAggiornare.setLabel(nuovoCustomer.getLabel());
+            customerDaAggiornare.setCategoriePreferite(nuovoCustomer.getCategoriePreferite());
             customerDaAggiornare.setAdmin(nuovoCustomer.isAdmin());
             this.customerRepository.getCouchbaseOperations().update(customerDaAggiornare);
             StringBuilder listCustomer = new StringBuilder();

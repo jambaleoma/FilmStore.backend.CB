@@ -7,6 +7,8 @@ import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
+import java.util.List;
+
 @Data
 @Document
 public class Customer {
@@ -38,6 +40,9 @@ public class Customer {
 
 	@Field
 	private Integer numeroRichieste;
+
+	@Field
+	private List<String> categoriePreferite;
 
 	@Field
 	private boolean isAdmin;
