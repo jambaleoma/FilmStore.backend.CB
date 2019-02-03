@@ -94,6 +94,23 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Boolean changeCustomerPsw(Customer nuovoCustomer, String id) {
+        if (customerRepository.exists(id)) {
+            Customer customerDaAggiornare = customerRepository.findOne(id);
+            customerDaAggiornare.setPassword(nuovoCustomer.getPassword());
+            this.customerRepository.getCouchbaseOperations().update(customerDaAggiornare);
+            if (this.customerRepository.findOne(id).getPassword().equals(nuovoCustomer.getPassword())) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        else {
+            throw new NotFoundException("Customer NON Aggiornato");
+        }
+    }
+
+    @Override
     public Customer deleteCustomerById(String id) {
         Customer c = this.getCustomerById(id);
         customerRepository.delete(c);

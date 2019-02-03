@@ -62,9 +62,20 @@ public class CustomerController {
 
     @CrossOrigin
     @PutMapping(value = "/upDateCustomer/{id}")
-    private ResponseEntity updateCustomer (@RequestBody Customer NuovoCustomer, @PathVariable String id) {
+    private ResponseEntity updateCustomer (@RequestBody Customer nuovoCustomer, @PathVariable String id) {
         try {
-            Customer customerAggiornato = customerService.updateCustomer(NuovoCustomer, id);
+            Customer customerAggiornato = customerService.updateCustomer(nuovoCustomer, id);
+            return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Customer", "--- OK --- Customer Aggiornato Con Successo").body(getAllCustomers().getBody());
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
+    @PutMapping(value = "/changeCustomerPsw/{id}")
+    private ResponseEntity changeCustomerPsw (@RequestBody Customer nuovoCustomer, @PathVariable String id) {
+        try {
+            Boolean aggiornato = customerService.changeCustomerPsw(nuovoCustomer, id);
             return ResponseEntity.status(HttpStatus.OK).header("Aggiornamento Customer", "--- OK --- Customer Aggiornato Con Successo").body(getAllCustomers().getBody());
         } catch (Exception e) {
             throw e;
