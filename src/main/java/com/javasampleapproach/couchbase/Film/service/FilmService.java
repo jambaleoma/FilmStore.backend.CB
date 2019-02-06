@@ -8,6 +8,7 @@ public interface FilmService {
 
         List<Film> getAllFilms();
         List<Film> getAllFilmsByName(String nome);
+        List<Film> getAllFilmsByCategory(String categoria);
         Film getFilmById(String id);
         Film addFilm(Film f);
         Film deleteFilmById(String id);

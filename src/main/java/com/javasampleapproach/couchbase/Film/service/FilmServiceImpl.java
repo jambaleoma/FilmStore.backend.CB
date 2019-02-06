@@ -2,6 +2,7 @@ package com.javasampleapproach.couchbase.Film.service;
 
 import com.couchbase.client.java.query.N1qlQuery;
 import com.couchbase.client.java.query.SimpleN1qlQuery;
+import com.javasampleapproach.couchbase.Customer.service.CustomerServiceImpl;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
@@ -10,11 +11,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//import java.io.File;
+import java.util.logging.Logger;
 
 @Component("FilmService")
 public class FilmServiceImpl implements FilmService {
+
+    private static final Logger LOGGER = Logger.getLogger( CustomerServiceImpl.class.getName() );
 
     @Autowired
     private FilmRepository filmRepository;
@@ -38,6 +40,27 @@ public class FilmServiceImpl implements FilmService {
         if (films.size() == 0) {
             throw new NotFoundException("Nessun Film con Nome: " + nome + " è stato Trovato");
         }
+        return films;
+    }
+
+    @Override
+    public List<Film> getAllFilmsByCategory(String categoria) {
+        List<Film> films = new ArrayList<>();
+        for (Film f : filmRepository.findAll()) {
+            for(int i = 0; i < f.getCategoria().size(); i++) {
+                if (i > 3)
+                    break;
+                if (f.getCategoria().get(i).equals(categoria))
+                    films.add(f);
+            }
+        }
+        if (films.size() == 0) {
+            throw new NotFoundException("Nessun Film con categoria: " + categoria + " è stato Trovato");
+        }
+        StringBuilder listFilms = new StringBuilder();
+        listFilms.append("\nLista Film Per Categoria:\n");
+        listFilms.append("\nCategoria: " + categoria + "\n");
+        LOGGER.info(listFilms.toString());
         return films;
     }
 
