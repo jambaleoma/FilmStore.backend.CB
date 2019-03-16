@@ -6,8 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
 import java.util.List;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
 
 @RestController
 @RequestMapping("/rest/customers")
@@ -15,6 +21,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    //Save the uploaded file to this folder
+    private static String UPLOADED_FOLDER = "/Users/vincenzo/Documents/FilmStore/FilmStore.frontend/src/assets/showcase/images/customer";
 
     @CrossOrigin
     @GetMapping(value = "/all")
@@ -103,5 +112,29 @@ public class CustomerController {
             throw e;
         }
     }
+
+    @CrossOrigin
+    @PostMapping(value = "/avatar/saveCustomerImage")
+    private ResponseEntity saveCustomerImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return null;
+        }
+
+        try {
+
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get( UPLOADED_FOLDER + file.getOriginalFilename() );
+            Files.write(path, bytes);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).header("Avatar Customer", "Avatar Customer Aggirnato con Successo").body("OK");
+
+    }
+
 
 }
