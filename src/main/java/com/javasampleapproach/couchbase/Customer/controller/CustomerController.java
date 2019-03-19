@@ -6,7 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -15,6 +20,12 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    // Save the uploaded file to this folder FOR WINDOWS
+    // private static String UPLOADED_FOLDER = "C:\\Users\\Enzo\\spindox-workspace\\filmProject.frontend\\src\\assets\\showcase\\images\\customer\\";
+
+    // Save the uploaded file to this folder FOR MAC
+    private static String UPLOADED_FOLDER = "/Users/vincenzo/Documents/FilmStore/FilmStore.frontend/src/assets/showcase/images/customer/";
 
     @CrossOrigin
     @GetMapping(value = "/all")
@@ -102,6 +113,22 @@ public class CustomerController {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/avatar/saveCustomerImage/{customerId}")
+    private ResponseEntity saveCustomerImage(@RequestParam("customerAvatar") MultipartFile file,  @PathVariable String customerId) {
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).header("Avatar Customer", "Non è stato trovato nessun File da caricare").body("Errore");
+        }
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get( UPLOADED_FOLDER + customerId + ".png" );
+            Files.write(path, bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.OK).header("Avatar Customer", "Avatar Customer Aggirnato con Successo").body("OK");
     }
 
 }
