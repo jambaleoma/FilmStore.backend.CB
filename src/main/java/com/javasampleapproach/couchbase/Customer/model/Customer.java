@@ -50,4 +50,7 @@ public class Customer {
 	@Field
 	private boolean avatar;
 
+	@Field
+	private String avatarBase64;
+
 }

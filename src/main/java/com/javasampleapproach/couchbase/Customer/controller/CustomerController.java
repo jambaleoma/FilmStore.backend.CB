@@ -2,6 +2,8 @@ package com.javasampleapproach.couchbase.Customer.controller;
 
 import com.javasampleapproach.couchbase.Customer.model.Customer;
 import com.javasampleapproach.couchbase.Customer.service.CustomerService;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +22,6 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
-
-    // Save the uploaded file to this folder FOR WINDOWS
-    // private static String UPLOADED_FOLDER = "C:\\Users\\Enzo\\spindox-workspace\\filmProject.frontend\\src\\assets\\showcase\\images\\customer\\";
-
-    // Save the uploaded file to this folder FOR MAC
-    private static String UPLOADED_FOLDER = "/Users/vincenzo/Documents/FilmStore/FilmStore.frontend/src/assets/showcase/images/customer/";
 
     @CrossOrigin
     @GetMapping(value = "/all")
@@ -115,7 +111,7 @@ public class CustomerController {
         }
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PostMapping(value = "/avatar/saveCustomerImage/{customerId}")
     private ResponseEntity saveCustomerImage(@RequestParam("customerAvatar") MultipartFile file,  @PathVariable String customerId) {
         if (file.isEmpty()) {
@@ -123,8 +119,13 @@ public class CustomerController {
         }
         try {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get( UPLOADED_FOLDER + customerId + ".png" );
-            Files.write(path, bytes);
+            StringBuilder sb = new StringBuilder();
+            sb.append("data:image/png;base64,");
+            sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(bytes, false)));
+            Customer customerToAddAvatar = customerService.getCustomerById(customerId);
+            customerToAddAvatar.setAvatarBase64(sb.toString());
+            customerToAddAvatar.setAvatar(true);
+            customerService.updateCustomer(customerToAddAvatar, customerId);
         } catch (IOException e) {
             e.printStackTrace();
         }

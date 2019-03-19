@@ -18,12 +18,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     private static final Logger LOGGER = Logger.getLogger( CustomerServiceImpl.class.getName() );
 
-    // Save the uploaded file to this folder FOR WINDOWS
-    // private static String UPLOADED_FOLDER = "C:\\Users\\Enzo\\spindox-workspace\\filmProject.frontend\\src\\assets\\showcase\\images\\customer\\";
-
-    // Save the uploaded file to this folder FOR MAC
-    private static String UPLOADED_FOLDER = "/Users/vincenzo/Documents/FilmStore/FilmStore.frontend/src/assets/showcase/images/customer/";
-
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -82,9 +76,6 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer updateCustomer(Customer nuovoCustomer, String id) {
         if (customerRepository.exists(id)) {
             Customer customerDaAggiornare = customerRepository.findOne(id);
-            if (customerDaAggiornare.isAvatar() && !nuovoCustomer.isAvatar()) {
-                this.deleteCustomerAvatar(customerDaAggiornare.getId());
-            }
             customerDaAggiornare.setFirstName(nuovoCustomer.getFirstName());
             customerDaAggiornare.setLastName(nuovoCustomer.getLastName());
             customerDaAggiornare.setDataDiNascita(nuovoCustomer.getDataDiNascita());
@@ -95,6 +86,7 @@ public class CustomerServiceImpl implements CustomerService {
             customerDaAggiornare.setCategoriePreferite(nuovoCustomer.getCategoriePreferite());
             customerDaAggiornare.setAdmin(nuovoCustomer.isAdmin());
             customerDaAggiornare.setAvatar(nuovoCustomer.isAvatar());
+            customerDaAggiornare.setAvatarBase64((nuovoCustomer.getAvatarBase64()));
             this.customerRepository.getCouchbaseOperations().update(customerDaAggiornare);
             StringBuilder listCustomer = new StringBuilder();
             listCustomer.append("\nUtente Aggiornato:\n");
@@ -145,17 +137,4 @@ public class CustomerServiceImpl implements CustomerService {
         return login;
     }
 
-    private Boolean deleteCustomerAvatar(String id) {
-        if ( id.length() < 1 ) {
-            return false;
-        } else {
-            Path path = Paths.get( UPLOADED_FOLDER + id + ".png" );
-            try {
-                Files.delete(path);
-                return true;
-            } catch (IOException e) {
-                return false;
-            }
-        }
-    }
 }
