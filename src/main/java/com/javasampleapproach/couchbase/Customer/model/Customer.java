@@ -47,4 +47,7 @@ public class Customer {
 	@Field
 	private boolean isAdmin;
 
+	@Field
+	private boolean avatar;
+
 }
