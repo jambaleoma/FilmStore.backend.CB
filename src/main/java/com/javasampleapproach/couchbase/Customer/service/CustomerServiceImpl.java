@@ -45,6 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
         for (Customer customer : customerRepository.findAll()) {
             if (customer.getFirstName().matches("(.*)" + firstName + "(.*)")) {
                 c = customer;
+                c.setPassword("********");
             }
         }
         StringBuilder listCustomer = new StringBuilder();
@@ -57,6 +58,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer getCustomerById(String id) {
         Customer c =  customerRepository.findOne(id);
+        c.setPassword("********");
         if (c == null)
             throw new NotFoundException("Customer con id: " + id + " NON Trovato");
         StringBuilder listCustomer = new StringBuilder();
