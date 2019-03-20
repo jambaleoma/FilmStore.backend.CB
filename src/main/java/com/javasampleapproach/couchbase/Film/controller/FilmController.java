@@ -2,11 +2,15 @@ package com.javasampleapproach.couchbase.Film.controller;
 
 import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.service.FilmService;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -102,6 +106,26 @@ public class FilmController {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/locandina/saveLocandinaImage/{filmId}")
+    private ResponseEntity saveCustomerImage(@RequestParam("filmLocandina") MultipartFile file, @PathVariable String filmId) {
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).header("Locandina Film", "Non è stato trovato nessun File da caricare").body("Errore");
+        }
+        try {
+            byte[] bytes = file.getBytes();
+            StringBuilder sb = new StringBuilder();
+            sb.append("data:image/png;base64,");
+            sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(bytes, false)));
+            Film filmToAddLocandina = filmsService.getFilmById(filmId);
+            filmToAddLocandina.setLocandina(sb.toString());
+            filmsService.updateFilmById(filmToAddLocandina, filmId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.OK).header("Locandina Film", "Locandina Film Aggirnata con Successo").body("OK");
     }
 
     /*

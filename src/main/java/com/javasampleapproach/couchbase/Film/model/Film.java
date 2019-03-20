@@ -41,5 +41,5 @@ public class Film {
     private String trama;
 
     @Field
-    private String urlLocandina;
+    private String locandina;
 }
