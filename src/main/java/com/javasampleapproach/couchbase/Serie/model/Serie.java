@@ -24,5 +24,8 @@ public class Serie {
     private String nome;
 
     @Field
+    private String locandina;
+
+    @Field
     private List<Stagione> stagioni;
 }

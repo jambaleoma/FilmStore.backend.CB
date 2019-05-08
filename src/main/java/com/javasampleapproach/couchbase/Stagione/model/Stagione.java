@@ -23,6 +23,9 @@ public class Stagione {
     private String serie_id;
 
     @Field
+    private String nome_serie;
+
+    @Field
     private Integer numeroStagione;
 
     @Field
@@ -47,5 +50,5 @@ public class Stagione {
     private String trama;
 
     @Field
-    private String urlLocandina;
+    private String locandina;
 }

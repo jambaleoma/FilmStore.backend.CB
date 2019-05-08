@@ -64,7 +64,7 @@ public class StagioneServiceImpl implements StagioneService {
             stagioneDaAggiornare.setLinguaSottotitoli(nuovaStagione.getLinguaSottotitoli());
             stagioneDaAggiornare.setNumeroEpisodi(nuovaStagione.getNumeroEpisodi());
             stagioneDaAggiornare.setEpisodi(nuovaStagione.getEpisodi());
-            stagioneDaAggiornare.setUrlLocandina(nuovaStagione.getUrlLocandina());
+            stagioneDaAggiornare.setLocandina(nuovaStagione.getLocandina());
             stagioneDaAggiornare.setTrama(nuovaStagione.getTrama());
             stagioneRepository.getCouchbaseOperations().update(stagioneDaAggiornare);
             return stagioneDaAggiornare;

@@ -68,6 +68,7 @@ public class SerieServiceImpl implements SerieService {
             Serie serieDaAggiornare = serieRepository.findOne(id);
             List<Stagione> stagioni = stagioneService.getAllStagioniByIdSerie(id);
             serieDaAggiornare.setNome(nuovaSerie.getNome());
+            serieDaAggiornare.setLocandina(nuovaSerie.getLocandina());
             serieDaAggiornare.setStagioni(stagioni);
             this.serieRepository.getCouchbaseOperations().update(serieDaAggiornare);
             return serieDaAggiornare;

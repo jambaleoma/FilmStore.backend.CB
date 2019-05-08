@@ -2,11 +2,15 @@ package com.javasampleapproach.couchbase.Stagione.controller;
 
 import com.javasampleapproach.couchbase.Stagione.model.Stagione;
 import com.javasampleapproach.couchbase.Stagione.service.StagioneService;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -91,5 +95,25 @@ public class StagioneController {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/locandina/saveLocandinaImage/{stagioneId}")
+    private ResponseEntity saveCustomerImage(@RequestParam("stagioneLocandina") MultipartFile file, @PathVariable String stagioneId) {
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).header("Locandina Stagione", "Non è stato trovato nessun File da caricare").body("Errore");
+        }
+        try {
+            byte[] bytes = file.getBytes();
+            StringBuilder sb = new StringBuilder();
+            sb.append("data:image/png;base64,");
+            sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(bytes, false)));
+            Stagione stagioneToAddLocandina = stagioneService.getStagioneById(stagioneId);
+            stagioneToAddLocandina.setLocandina(sb.toString());
+            stagioneService.updateStagione(stagioneToAddLocandina, stagioneId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.OK).header("Locandina Stagione", "Locandina Stagione Aggiornata con Successo").body("OK");
     }
 }

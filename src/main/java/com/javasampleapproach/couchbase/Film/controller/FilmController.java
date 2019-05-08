@@ -125,7 +125,7 @@ public class FilmController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ResponseEntity.status(HttpStatus.OK).header("Locandina Film", "Locandina Film Aggirnata con Successo").body("OK");
+        return ResponseEntity.status(HttpStatus.OK).header("Locandina Film", "Locandina Film Aggiornata con Successo").body("OK");
     }
 
     /*
