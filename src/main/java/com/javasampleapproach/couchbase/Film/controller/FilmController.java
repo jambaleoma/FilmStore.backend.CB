@@ -32,6 +32,17 @@ public class FilmController {
     }
 
     @CrossOrigin
+    @GetMapping(value = "/allNewFilms/{numeroNuoviFilm}")
+    private ResponseEntity getAllNewFilms(@PathVariable String numeroNuoviFilm) {
+        try {
+            List<Film> films = this.filmsService.getAllNewFilms(Integer.parseInt(numeroNuoviFilm));
+            return ResponseEntity.status(HttpStatus.OK).header("Lista Nuovi Film", "--- OK --- Lista Nuovi Film Trovata Con Successo").body(films);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
     @GetMapping(value = "/byName/{nome}")
     private ResponseEntity getAllFilmsByName(@PathVariable String nome) {
         try {

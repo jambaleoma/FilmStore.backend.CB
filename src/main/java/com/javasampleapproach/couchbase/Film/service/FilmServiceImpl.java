@@ -9,8 +9,8 @@ import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.logging.Logger;
 
 @Component("FilmService")
@@ -28,6 +28,14 @@ public class FilmServiceImpl implements FilmService {
             throw new NotFoundException("Nessun Film Trovato");
         }
         return films;
+    }
+
+    @Override
+    public List<Film> getAllNewFilms(Integer numeroNuoviFilm) {
+        List<Film> allNewFilms = this.getAllFilms();
+        Collections.sort(allNewFilms, new DataCreazioneComparatore());
+        allNewFilms = allNewFilms.subList(0, numeroNuoviFilm);
+        return allNewFilms;
     }
 
     @Override
@@ -106,6 +114,7 @@ public class FilmServiceImpl implements FilmService {
             filmDaAggiornare.setLinguaSottotitoli(nuovoFilm.getLinguaSottotitoli());
             filmDaAggiornare.setLocandina(nuovoFilm.getLocandina());
             filmDaAggiornare.setTrama(nuovoFilm.getTrama());
+            filmDaAggiornare.setDataCreazione(nuovoFilm.getDataCreazione());
             this.filmRepository.getCouchbaseOperations().update(filmDaAggiornare);
             return filmDaAggiornare;
         } else {

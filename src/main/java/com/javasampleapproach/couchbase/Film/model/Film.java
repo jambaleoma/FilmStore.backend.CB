@@ -42,4 +42,7 @@ public class Film {
 
     @Field
     private String locandina;
+
+    @Field
+    private Long dataCreazione;
 }
