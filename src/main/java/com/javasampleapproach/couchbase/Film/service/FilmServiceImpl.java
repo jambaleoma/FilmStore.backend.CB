@@ -99,6 +99,8 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public Film addFilm(Film f) {
+        String newDateFilm = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
+        f.setDataCreazione(Long.parseLong(newDateFilm));
         return filmRepository.save(f);
     }
 
