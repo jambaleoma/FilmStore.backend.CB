@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 @Component("SerieService")
@@ -29,6 +32,14 @@ public class SerieServiceImpl implements SerieService {
             throw new NotFoundException("Nessuna Serie Trovata");
         }
         return serie;
+    }
+
+    @Override
+    public List<Serie> getAllNewSerie(Integer numeroNuoveSerie) {
+        List<Serie> allNewSerie = this.getAllSerie();
+        Collections.sort(allNewSerie, new DataCreazioneComparatore());
+        allNewSerie = allNewSerie.subList(0, numeroNuoveSerie);
+        return allNewSerie;
     }
 
     @Override
@@ -59,6 +70,8 @@ public class SerieServiceImpl implements SerieService {
             if (serie.get_id().equals(s.get_id()))
                 throw new AlreadyExistException("La Serie con Id: " + s.get_id() + " è già presente, Cambia l'ID se vuoi inserire la Serie");
         }
+        String newDateSerie = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
+        s.setDataCreazione(Long.parseLong(newDateSerie));
         return serieRepository.save(s);
     }
 
@@ -70,6 +83,7 @@ public class SerieServiceImpl implements SerieService {
             serieDaAggiornare.setNome(nuovaSerie.getNome());
             serieDaAggiornare.setLocandina(nuovaSerie.getLocandina());
             serieDaAggiornare.setStagioni(stagioni);
+            serieDaAggiornare.setDataCreazione(nuovaSerie.getDataCreazione());
             this.serieRepository.getCouchbaseOperations().update(serieDaAggiornare);
             return serieDaAggiornare;
         } else {

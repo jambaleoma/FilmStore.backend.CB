@@ -28,4 +28,7 @@ public class Serie {
 
     @Field
     private List<Stagione> stagioni;
+
+    @Field
+    private Long dataCreazione;
 }

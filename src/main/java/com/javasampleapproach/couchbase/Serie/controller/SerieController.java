@@ -32,6 +32,17 @@ public class SerieController {
     }
 
     @CrossOrigin
+    @GetMapping(value = "/allNewSerie/{numeroNuoveSerie}")
+    private ResponseEntity getAllNewSerie(@PathVariable String numeroNuoveSerie) {
+        try {
+            List<Serie> serie = this.serieService.getAllNewSerie(Integer.parseInt(numeroNuoveSerie));
+            return ResponseEntity.status(HttpStatus.OK).header("Lista Nuove Serie", "--- OK --- Lista Nuove Serie Trovata Con Successo").body(serie);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
     @GetMapping(value = "/byName/{name}")
     private ResponseEntity getAllSerieByName(@PathVariable String name) {
         try {

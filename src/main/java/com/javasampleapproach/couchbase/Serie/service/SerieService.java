@@ -7,6 +7,7 @@ import java.util.List;
 public interface SerieService {
 
     List<Serie> getAllSerie();
+    List<Serie> getAllNewSerie (Integer numeroNuoveSerie);
     List<Serie> getAllSerieByName(String name);
     Serie getSerieById(String id);
     Serie addSerie(Serie s);
