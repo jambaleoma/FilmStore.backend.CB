@@ -7,6 +7,7 @@ import java.util.List;
 public interface FilmService {
 
         List<Film> getAllFilms();
+        String getRecentOlderYear();
         List<Film> getAllNewFilms (Integer numeroNuoviFilm);
         List<Film> getAllFilmsByName(String nome);
         List<Film> getAllFilmsByCategory(String categoria);

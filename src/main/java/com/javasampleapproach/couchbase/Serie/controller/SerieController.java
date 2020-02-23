@@ -100,7 +100,7 @@ public class SerieController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/locandina/saveLocandinaImage/{serieId}")
-    private ResponseEntity saveCustomerImage(@RequestParam("serieLocandina") MultipartFile file, @PathVariable String serieId) {
+    private ResponseEntity saveSerieLocandinaImage(@RequestParam("serieLocandina") MultipartFile file, @PathVariable String serieId) {
         if (file.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).header("Locandina Serie", "Non è stato trovato nessun File da caricare").body("Errore");
         }

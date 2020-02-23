@@ -31,6 +31,23 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public String getRecentOlderYear() {
+        String recentOlderYear = "";
+        int recentYear = 0;
+        int olderYear = Calendar.getInstance().get(Calendar.YEAR);
+        for (Film f : filmRepository.findAll()) {
+            if (f.getAnno() < olderYear) {
+                olderYear = f.getAnno();
+            }
+            if (f.getAnno() > recentYear) {
+                recentYear = f.getAnno();
+            }
+            recentOlderYear = olderYear + "-" + recentYear;
+        }
+        return recentOlderYear;
+    }
+
+    @Override
     public List<Film> getAllNewFilms(Integer numeroNuoviFilm) {
         List<Film> allNewFilms = this.getAllFilms();
         Collections.sort(allNewFilms, new DataCreazioneComparatore());

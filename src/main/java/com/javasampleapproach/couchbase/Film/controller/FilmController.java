@@ -32,6 +32,17 @@ public class FilmController {
     }
 
     @CrossOrigin
+    @GetMapping(value = "/recentOlderYear")
+    private ResponseEntity getRecentOlderYear() {
+        try {
+            String recentOlderYear = this.filmsService.getRecentOlderYear();
+            return ResponseEntity.status(HttpStatus.OK).header("Anno minore e maggiore", "--- OK --- Anni Trovati Con Successo").body(recentOlderYear);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @CrossOrigin
     @GetMapping(value = "/allNewFilms/{numeroNuoviFilm}")
     private ResponseEntity getAllNewFilms(@PathVariable String numeroNuoviFilm) {
         try {
@@ -121,7 +132,7 @@ public class FilmController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/locandina/saveLocandinaImage/{filmId}")
-    private ResponseEntity saveCustomerImage(@RequestParam("filmLocandina") MultipartFile file, @PathVariable String filmId) {
+    private ResponseEntity saveFilmLocandinaImage(@RequestParam("filmLocandina") MultipartFile file, @PathVariable String filmId) {
         if (file.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).header("Locandina Film", "Non è stato trovato nessun File da caricare").body("Errore");
         }
