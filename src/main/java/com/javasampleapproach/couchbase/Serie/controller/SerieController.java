@@ -118,12 +118,12 @@ public class SerieController {
         return ResponseEntity.status(HttpStatus.OK).header("Locandina Serie", "Locandina Serie Aggiornata con Successo").body("OK");
     }
 
-   /* @CrossOrigin
-    @PostMapping(value = "/insertLocalListSerie/{formato}")
-    public ResponseEntity addSerieByFormato(@PathVariable String formato) {
+    /*@CrossOrigin
+    @PostMapping(value = "/insertLocalListSerie")
+    public ResponseEntity addSerieLista() {
         try {
-            List<Serie> listaSerie = serieService.addListaSerieByFormato(formato);
-            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Serie", "--- OK --- Lista Serie Creata Con Successo").body(listaSerie);
+            serieService.addListaSerie();
+            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Serie", "--- OK --- Lista Serie Creata Con Successo").body("OK");
         } catch (Exception e) {
             throw e;
         }

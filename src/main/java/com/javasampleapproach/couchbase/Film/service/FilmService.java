@@ -16,5 +16,5 @@ public interface FilmService {
         Film deleteFilmById(String id);
         Film updateFilmById (Film nuovoFilm, String id);
         List<Film> getFilmByFormatoQuery(String formato);
-        //List<Film> addListaFilms(String formato);
+//        void addListaFilms();
 }

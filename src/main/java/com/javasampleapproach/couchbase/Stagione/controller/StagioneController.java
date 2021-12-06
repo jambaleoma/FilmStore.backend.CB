@@ -1,5 +1,6 @@
 package com.javasampleapproach.couchbase.Stagione.controller;
 
+import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Stagione.model.Stagione;
 import com.javasampleapproach.couchbase.Stagione.service.StagioneService;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -116,4 +117,14 @@ public class StagioneController {
         }
         return ResponseEntity.status(HttpStatus.OK).header("Locandina Stagione", "Locandina Stagione Aggiornata con Successo").body("OK");
     }
+
+    /*@PostMapping(value = "/insertLocalListStagione")
+    public ResponseEntity addStagioneList() {
+        try {
+            stagioneService.addListaStagioni();
+            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Stagioni", "--- OK --- Lista Stagioni Creata Con Successo").body("OK");
+        } catch (Exception e) {
+            throw e;
+        }
+    }*/
 }

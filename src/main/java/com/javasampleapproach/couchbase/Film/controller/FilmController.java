@@ -150,16 +150,14 @@ public class FilmController {
         return ResponseEntity.status(HttpStatus.OK).header("Locandina Film", "Locandina Film Aggiornata con Successo").body("OK");
     }
 
-    /*
-    @PostMapping(value = "/insertLocalListFilm/{formato}")
-    public ResponseEntity addFilmsList(@PathVariable String formato) {
+    /*@PostMapping(value = "/insertLocalListFilm")
+    public ResponseEntity addFilmsList() {
         try {
-            List<Film> listaFilm = filmsService.addListaFilms(formato);
-            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Film", "--- OK --- Lista Film Creata Con Successo").body(listaFilm);
+            filmsService.addListaFilms();
+            return ResponseEntity.status(HttpStatus.CREATED).header("Creazione Lista Film", "--- OK --- Lista Film Creata Con Successo").body("OK");
         } catch (Exception e) {
             throw e;
         }
-    }
-    */
+    }*/
 
 }

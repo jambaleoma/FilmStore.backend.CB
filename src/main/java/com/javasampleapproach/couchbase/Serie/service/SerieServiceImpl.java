@@ -6,10 +6,16 @@ import com.javasampleapproach.couchbase.Serie.model.Serie;
 import com.javasampleapproach.couchbase.Serie.repository.SerieRepository;
 import com.javasampleapproach.couchbase.Stagione.model.Stagione;
 import com.javasampleapproach.couchbase.Stagione.service.StagioneService;
+import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
+import net.minidev.json.parser.JSONParser;
+import net.minidev.json.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -102,34 +108,91 @@ public class SerieServiceImpl implements SerieService {
         }
     }
 
-   /* //Riempie il DB Couchbase Con le SerieTV nel disco di BackUp
-    @Override
-    public List<Serie> addListaSerieByFormato(String formato) {
-        //PC
-        File from1080 = new File("H:\\SerieTV\\1080p");
-        File fromDVDRip = new File("H:\\SerieTV\\WEBRip");
-        //MAC
-        //File from1080 = new File("/Volumes/TOSHIBA EXT/SerieTV/1080p");
-        //File fromDVDRip = new File("/Volumes/TOSHIBA EXT/SerieTV/WEBRip");
-        File[] f1080 = trovaFile(from1080);
-        File[] fWEB = trovaFile(fromDVDRip);
-        List<Serie> listaSerieTV = new ArrayList<>();
-        if (formato.equals("FULL-HD")) {
-            for (int i=0; i<f1080.length; i++) {
-              // listaSerieTV.add(this.addSerie(new Serie(f1080[i].getName(), formato)));
-            }
-        }
-        if (formato.equals("WEB")) {
-            for (int i=0; i<fWEB.length; i++) {
-               // listaSerieTV.add(this.addSerie(new Serie(fWEB[i].getName(), formato)));
-            }
-        }
-        return listaSerieTV;
-    }*/
+    // Riempie il DB Couchbase Con le SerieTV nel JSON di riferimento
+    // Commentare le righe 79 e 80 in addSerie per evitare di sovrascrivere la data creazione
+    /*@Override
+    public void addListaSerie() {
+        JSONParser parser = new JSONParser();
 
-    private static File[] trovaFile(File from) {
-        File[] files = from.listFiles();
-        return files;
-    }
+        JSONArray a = null;
+        try {
+            a = (JSONArray) parser.parse(new FileReader("C:\\Users\\Enzo\\Desktop\\responseSerie.json"));
+
+            for (Object o : a) {
+                JSONObject serie = (JSONObject) o;
+
+                String serie_id = (String) serie.get("serie_id");
+                String nome = (String) serie.get("nome");
+                String locandina = (String) serie.get("locandina");
+                JSONArray stagioni = (JSONArray) serie.get("stagioni");
+                List<Stagione> stagioniList = new ArrayList<>();
+                if (stagioni != null) {
+                    for (Object s : stagioni) {
+                        JSONObject stagione = (JSONObject) s;
+
+                        String serie_idStagione = (String) stagione.get("serie_id");
+                        String nome_serie = (String) stagione.get("nome_serie");
+                        Integer numeroStagione = (Integer) stagione.get("numeroStagione");
+                        String formato = (String) stagione.get("formato");
+                        Integer anno = (Integer) stagione.get("anno");
+                        Integer numeroEpisodi = (Integer) stagione.get("numeroEpisodi");
+                        JSONArray episodi = (JSONArray) stagione.get("episodi");
+                        String[] episodiList = new String[episodi.size()];
+                        if (episodi != null) {
+                            for (int i = 0; i < episodi.size(); i++) {
+                                episodiList[i] = episodi.get(i).toString();
+                            }
+                        }
+                        JSONArray linguaAudio = (JSONArray) stagione.get("linguaAudio");
+                        List<String> lingueAudio = new ArrayList<>();
+                        if (linguaAudio != null) {
+                            for (Object la : linguaAudio) {
+                                lingueAudio.add(la.toString());
+                            }
+                        }
+                        JSONArray linguaSottotitoli = (JSONArray) stagione.get("linguaSottotitoli");
+                        List<String> lingueSottotitoli = new ArrayList<>();
+                        if (linguaSottotitoli != null) {
+                            for (Object ls : linguaSottotitoli) {
+                                lingueSottotitoli.add(ls.toString());
+                            }
+                        }
+                        String trama = (String) stagione.get("trama");
+                        String locandinaStagione = (String) stagione.get("locandina");
+
+                        Stagione newStagione = new Stagione();
+                        newStagione.setSerie_id(serie_idStagione);
+                        newStagione.setNome_serie(nome_serie);
+                        newStagione.setNumeroStagione(numeroStagione);
+                        newStagione.setFormato(formato);
+                        newStagione.setAnno(anno);
+                        newStagione.setNumeroEpisodi(numeroEpisodi);
+                        newStagione.setEpisodi(episodiList);
+                        newStagione.setLinguaAudio(lingueAudio);
+                        newStagione.setLinguaSottotitoli(lingueSottotitoli);
+                        newStagione.setTrama(trama);
+                        newStagione.setLocandina(locandinaStagione);
+
+                        stagioniList.add(newStagione);
+                    }
+                }
+                Long dataCreazione = (Long) serie.get("dataCreazione");
+
+                Serie newSerie = new Serie();
+                newSerie.set_id(serie_id);
+                newSerie.setNome(nome);
+                newSerie.setLocandina(locandina);
+                newSerie.setStagioni(stagioniList);
+                newSerie.setDataCreazione(dataCreazione);
+
+                this.addSerie(newSerie);
+
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }*/
 
 }

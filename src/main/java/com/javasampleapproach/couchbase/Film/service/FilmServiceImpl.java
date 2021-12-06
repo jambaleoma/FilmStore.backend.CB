@@ -6,9 +6,15 @@ import com.javasampleapproach.couchbase.Customer.service.CustomerServiceImpl;
 import com.javasampleapproach.couchbase.Exception.NotFoundException;
 import com.javasampleapproach.couchbase.Film.model.Film;
 import com.javasampleapproach.couchbase.Film.repository.FilmRepository;
+import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
+import net.minidev.json.parser.JSONParser;
+import net.minidev.json.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Logger;
@@ -148,44 +154,67 @@ public class FilmServiceImpl implements FilmService {
         return f;
     }
 
-/*
-    //Riempie il DB Couchbase Con i film nel disco di BackUp
-    @Override
-    public List<Film> addListaFilms(String formato) {
-        //PC
-        File from1080 = new File("H:\\Film\\1080p");
-        File from720 = new File("H:\\Film\\720p");
-        File fromDVDRip = new File("H:\\Film\\DVDRip");
-        //MAC
-        //File from1080 = new File("/Volumes/TOSHIBA EXT/Film/1080p");
-        //File from720 = new File("/Volumes/TOSHIBA EXT/Film/720p");
-        //File fromDVDRip = new File("/Volumes/TOSHIBA EXT/Film/DVDRip");
-        File[] f1080 = trovaFile(from1080);
-        File[] f720 = trovaFile(from720);
-        File[] fDVD = trovaFile(fromDVDRip);
-        List<Film> listaFilm = new ArrayList<>();
-        if (formato.equals("FULL-HD")) {
-            for (int i=0; i<f1080.length; i++) {
-                listaFilm.add(this.addFilm(new Film(f1080[i].getName(), formato)));
-            }
-        }
-        if (formato.equals("HD")) {
-            for (int i=0; i<f720.length; i++) {
-                listaFilm.add(this.addFilm(new Film(f720[i].getName(), formato)));
-            }
-        }
-        if (formato.equals("DVD")) {
-            for (int i=0; i<fDVD.length; i++) {
-                listaFilm.add(this.addFilm(new Film(fDVD[i].getName(), formato)));
-            }
-        }
-        return listaFilm;
-    }
+    // Riempie il DB Couchbase Con i film nel JSON di riferimento
+    // Commentare le righe 125 e 126 in addFilm per evitare di sovrascrivere la data creazione
+    /*@Override
+    public void addListaFilms() {
 
-    private static File[] trovaFile(File from) {
-        File[] files = from.listFiles();
-        return files;
-    }
-*/
+        JSONParser parser = new JSONParser();
+
+        JSONArray a = null;
+        try {
+            a = (JSONArray) parser.parse(new FileReader("C:\\Users\\Enzo\\Desktop\\responseFilm.json"));
+
+            for (Object o : a) {
+                JSONObject film = (JSONObject) o;
+
+                String nome = (String) film.get("nome");
+                Integer anno = (Integer) film.get("anno");
+                String formato = (String) film.get("formato");
+                JSONArray categoria = (JSONArray) film.get("categoria");
+                List<String> categoriaList = new ArrayList<>();
+                if (categoria != null) {
+                    for (Object la : categoria) {
+                        categoriaList.add(la.toString());
+                    }
+                }
+                JSONArray linguaAudio = (JSONArray) film.get("linguaAudio");
+                List<String> lingueAudio = new ArrayList<>();
+                if (linguaAudio != null) {
+                    for (Object la : linguaAudio) {
+                        lingueAudio.add(la.toString());
+                    }
+                }
+                JSONArray linguaSottotitoli = (JSONArray) film.get("linguaSottotitoli");
+                List<String> lingueSottotitoli = new ArrayList<>();
+                if (linguaSottotitoli != null) {
+                    for (Object ls : linguaSottotitoli) {
+                        lingueSottotitoli.add(ls.toString());
+                    }
+                }
+                String trama = (String) film.get("trama");
+                String locandina = (String) film.get("locandina");
+                Long dataCreazione = (Long) film.get("dataCreazione");
+
+                Film newFilm = new Film();
+                newFilm.setNome(nome);
+                newFilm.setAnno(anno);
+                newFilm.setFormato(formato);
+                newFilm.setCategoria(categoriaList);
+                newFilm.setLinguaAudio(lingueAudio);
+                newFilm.setLinguaSottotitoli(lingueSottotitoli);
+                newFilm.setTrama(trama);
+                newFilm.setLocandina(locandina);
+                newFilm.setDataCreazione(dataCreazione);
+
+                this.addFilm(newFilm);
+
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }*/
 
 }
